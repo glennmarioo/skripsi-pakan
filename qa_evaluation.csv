@@ -1,0 +1,580 @@
+2026-05-23T23:12:28.165575,"halo, selamat malam","                    name       price protein         age_category                                                                                        description  stock
+0                   BR11  Rp 450.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     72
+1                   BR12  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    120
+2                  BR12G  Rp 437.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     45
+3                510/DOC  Rp 472.500     23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    110
+4                    511  Rp 472.500  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     95
+5                    512  Rp 467.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     75
+6                  511 B  Rp 450.000  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     60
+7                  512 B  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    130
+8                    594  Rp 462.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     25
+9                  582 K  Rp 240.000     14%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    140
+10         324 (PETELUR)  Rp 370.000   18.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     90
+11                   144  Rp 495.000     38%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     10
+12                   152  Rp 650.000     36%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     55
+13                   551  Rp 520.000     17%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    115
+14                  520S  Rp 437.500     20%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     70
+15                   521  Rp 387.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    100
+16                BR 11+  Rp 440.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     80
+17     112 KONST BROILER  Rp 652.500     38%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     40
+18                 124 P  Rp 432.500     36%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.    134
+19            CHOI / DOC  Rp 420.000  22-24%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     50
+20             BPS / DOC  Rp 440.000     22%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    105
+21         295 (PETELUR)  Rp 362.500   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     30
+22                BRO 1   Rp 435.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    125
+23                 CP 51  Rp 355.000     17%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     65
+24          EH 201 BEBEK  Rp 370.000     18%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.     20
+25        EH 202 A BEBEK  Rp 355.000     16%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.    145
+26  EH 303 (BEBEK TELUR)  Rp 364.000     18%           Bebek/Duck              Pakan khusus untuk bebek/itik. Sangat cocok untuk memaksimalkan produksi telur bebek.     15
+27     EH 811 KONSENTRAT  Rp 440.000     38%     All Ages/General                               Konsentrat tinggi protein sehingga perlu dicampur dengan bahan lain.     85
+28           312 (PUYUH)  Rp 365.000     20%          Puyuh/Quail                                                 Pakan khusus puyuh untuk pertumbuhan dan produksi.     35
+29    711 LAYER PRODUKSI  Rp 350.000   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.    150
+30          EH 710 LAYER  Rp 350.000     15%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     12",Selamat malam! Saya Asisten Virtual PT Cipta Sama Abadi. Ada yang bisa saya bantu terkait ketersediaan dan rekomendasi pakan unggas kami hari ini?
+2026-05-23T23:13:09.883600,cek stok terbanyak,"                    name       price protein         age_category                                                                                        description  stock
+0                   BR11  Rp 450.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     72
+1                   BR12  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    120
+2                  BR12G  Rp 437.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     45
+3                510/DOC  Rp 472.500     23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    110
+4                    511  Rp 472.500  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     95
+5                    512  Rp 467.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     75
+6                  511 B  Rp 450.000  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     60
+7                  512 B  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    130
+8                    594  Rp 462.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     25
+9                  582 K  Rp 240.000     14%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    140
+10         324 (PETELUR)  Rp 370.000   18.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     90
+11                   144  Rp 495.000     38%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     10
+12                   152  Rp 650.000     36%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     55
+13                   551  Rp 520.000     17%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    115
+14                  520S  Rp 437.500     20%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     70
+15                   521  Rp 387.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    100
+16                BR 11+  Rp 440.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     80
+17     112 KONST BROILER  Rp 652.500     38%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     40
+18                 124 P  Rp 432.500     36%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.    134
+19            CHOI / DOC  Rp 420.000  22-24%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     50
+20             BPS / DOC  Rp 440.000     22%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    105
+21         295 (PETELUR)  Rp 362.500   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     30
+22                BRO 1   Rp 435.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    125
+23                 CP 51  Rp 355.000     17%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     65
+24          EH 201 BEBEK  Rp 370.000     18%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.     20
+25        EH 202 A BEBEK  Rp 355.000     16%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.    145
+26  EH 303 (BEBEK TELUR)  Rp 364.000     18%           Bebek/Duck              Pakan khusus untuk bebek/itik. Sangat cocok untuk memaksimalkan produksi telur bebek.     15
+27     EH 811 KONSENTRAT  Rp 440.000     38%     All Ages/General                               Konsentrat tinggi protein sehingga perlu dicampur dengan bahan lain.     85
+28           312 (PUYUH)  Rp 365.000     20%          Puyuh/Quail                                                 Pakan khusus puyuh untuk pertumbuhan dan produksi.     35
+29    711 LAYER PRODUKSI  Rp 350.000   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.    150
+30          EH 710 LAYER  Rp 350.000     15%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     12","Selamat malam! Berdasarkan katalog resmi PT Cipta Sama Abadi, berikut adalah daftar produk kami dengan jumlah stok terbanyak yang dapat menjadi pilihan Anda:
+
+1. 711 LAYER PRODUKSI (150 stok, harga Rp 350.000). Produk ini sangat direkomendasikan untuk ayam petelur fase layer karena mampu meningkatkan kualitas cangkang dan kuantitas telur.
+
+2. EH 202 A BEBEK (145 stok, harga Rp 355.000). Pakan ini dirancang khusus dengan kandungan protein 16 persen untuk memenuhi kebutuhan nutrisi bebek atau itik Anda.
+
+3. 582 K (140 stok, harga Rp 240.000). Ini merupakan pilihan yang sangat ekonomis untuk berbagai fase unggas dengan kualitas pakan yang tetap terjaga.
+
+4. 124 P (134 stok, harga Rp 432.500). Pakan khusus untuk fase layer (18 minggu ke atas) ini memiliki kadar protein tinggi sebesar 36 persen untuk mendukung produktivitas telur yang optimal.
+
+5. 512 B (130 stok, harga Rp 447.500). Pakan ini cocok untuk ayam fase pembesaran (grower) dalam menjaga stamina dan membantu pembentukan postur tubuh ayam yang baik.
+
+Kami menyarankan pemilihan produk disesuaikan dengan fase usia dan kebutuhan spesifik unggas Anda agar mendapatkan hasil yang maksimal. Apakah ada produk spesifik yang ingin Anda tanyakan lebih lanjut?"
+2026-05-23T23:13:22.567891,siapa presiden kita?,"                    name       price protein         age_category                                                                                        description  stock
+0                   BR11  Rp 450.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     72
+1                   BR12  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    120
+2                  BR12G  Rp 437.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     45
+3                510/DOC  Rp 472.500     23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    110
+4                    511  Rp 472.500  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     95
+5                    512  Rp 467.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     75
+6                  511 B  Rp 450.000  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     60
+7                  512 B  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    130
+8                    594  Rp 462.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     25
+9                  582 K  Rp 240.000     14%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    140
+10         324 (PETELUR)  Rp 370.000   18.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     90
+11                   144  Rp 495.000     38%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     10
+12                   152  Rp 650.000     36%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     55
+13                   551  Rp 520.000     17%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    115
+14                  520S  Rp 437.500     20%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     70
+15                   521  Rp 387.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    100
+16                BR 11+  Rp 440.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     80
+17     112 KONST BROILER  Rp 652.500     38%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     40
+18                 124 P  Rp 432.500     36%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.    134
+19            CHOI / DOC  Rp 420.000  22-24%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     50
+20             BPS / DOC  Rp 440.000     22%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    105
+21         295 (PETELUR)  Rp 362.500   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     30
+22                BRO 1   Rp 435.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    125
+23                 CP 51  Rp 355.000     17%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     65
+24          EH 201 BEBEK  Rp 370.000     18%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.     20
+25        EH 202 A BEBEK  Rp 355.000     16%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.    145
+26  EH 303 (BEBEK TELUR)  Rp 364.000     18%           Bebek/Duck              Pakan khusus untuk bebek/itik. Sangat cocok untuk memaksimalkan produksi telur bebek.     15
+27     EH 811 KONSENTRAT  Rp 440.000     38%     All Ages/General                               Konsentrat tinggi protein sehingga perlu dicampur dengan bahan lain.     85
+28           312 (PUYUH)  Rp 365.000     20%          Puyuh/Quail                                                 Pakan khusus puyuh untuk pertumbuhan dan produksi.     35
+29    711 LAYER PRODUKSI  Rp 350.000   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.    150
+30          EH 710 LAYER  Rp 350.000     15%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     12","Mohon maaf, sebagai Asisten Virtual PT Cipta Sama Abadi, saya hanya dapat memberikan informasi terkait produk pakan unggas sesuai dengan katalog resmi kami. Saya tidak dapat menjawab pertanyaan di luar topik peternakan. Apakah ada yang bisa saya bantu terkait kebutuhan pakan unggas Anda hari ini?"
+2026-05-23T23:15:00.305273,"halo, selamat malam","                    name       price protein         age_category                                                                                        description  stock
+0                   BR11  Rp 450.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     72
+1                   BR12  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    120
+2                  BR12G  Rp 437.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     45
+3                510/DOC  Rp 472.500     23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    110
+4                    511  Rp 472.500  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     95
+5                    512  Rp 467.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     75
+6                  511 B  Rp 450.000  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     60
+7                  512 B  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    130
+8                    594  Rp 462.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     25
+9                  582 K  Rp 240.000     14%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    140
+10         324 (PETELUR)  Rp 370.000   18.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     90
+11                   144  Rp 495.000     38%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     10
+12                   152  Rp 650.000     36%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     55
+13                   551  Rp 520.000     17%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    115
+14                  520S  Rp 437.500     20%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     70
+15                   521  Rp 387.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    100
+16                BR 11+  Rp 440.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     80
+17     112 KONST BROILER  Rp 652.500     38%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     40
+18                 124 P  Rp 432.500     36%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.    134
+19            CHOI / DOC  Rp 420.000  22-24%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     50
+20             BPS / DOC  Rp 440.000     22%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    105
+21         295 (PETELUR)  Rp 362.500   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     30
+22                BRO 1   Rp 435.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    125
+23                 CP 51  Rp 355.000     17%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     65
+24          EH 201 BEBEK  Rp 370.000     18%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.     20
+25        EH 202 A BEBEK  Rp 355.000     16%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.    145
+26  EH 303 (BEBEK TELUR)  Rp 364.000     18%           Bebek/Duck              Pakan khusus untuk bebek/itik. Sangat cocok untuk memaksimalkan produksi telur bebek.     15
+27     EH 811 KONSENTRAT  Rp 440.000     38%     All Ages/General                               Konsentrat tinggi protein sehingga perlu dicampur dengan bahan lain.     85
+28           312 (PUYUH)  Rp 365.000     20%          Puyuh/Quail                                                 Pakan khusus puyuh untuk pertumbuhan dan produksi.     35
+29    711 LAYER PRODUKSI  Rp 350.000   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.    150
+30          EH 710 LAYER  Rp 350.000     15%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     12","Selamat malam! Senang sekali bisa menyapa Anda. Saya Asisten Virtual PT Cipta Sama Abadi, apakah ada yang bisa saya bantu terkait kebutuhan pakan unggas Anda hari ini?"
+2026-05-23T23:15:09.091525,cek stok br11,"                    name       price protein         age_category                                                                                        description  stock
+0                   BR11  Rp 450.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     72
+1                   BR12  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    120
+2                  BR12G  Rp 437.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     45
+3                510/DOC  Rp 472.500     23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    110
+4                    511  Rp 472.500  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     95
+5                    512  Rp 467.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     75
+6                  511 B  Rp 450.000  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     60
+7                  512 B  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    130
+8                    594  Rp 462.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     25
+9                  582 K  Rp 240.000     14%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    140
+10         324 (PETELUR)  Rp 370.000   18.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     90
+11                   144  Rp 495.000     38%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     10
+12                   152  Rp 650.000     36%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     55
+13                   551  Rp 520.000     17%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    115
+14                  520S  Rp 437.500     20%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     70
+15                   521  Rp 387.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    100
+16                BR 11+  Rp 440.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     80
+17     112 KONST BROILER  Rp 652.500     38%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     40
+18                 124 P  Rp 432.500     36%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.    134
+19            CHOI / DOC  Rp 420.000  22-24%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     50
+20             BPS / DOC  Rp 440.000     22%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    105
+21         295 (PETELUR)  Rp 362.500   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     30
+22                BRO 1   Rp 435.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    125
+23                 CP 51  Rp 355.000     17%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     65
+24          EH 201 BEBEK  Rp 370.000     18%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.     20
+25        EH 202 A BEBEK  Rp 355.000     16%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.    145
+26  EH 303 (BEBEK TELUR)  Rp 364.000     18%           Bebek/Duck              Pakan khusus untuk bebek/itik. Sangat cocok untuk memaksimalkan produksi telur bebek.     15
+27     EH 811 KONSENTRAT  Rp 440.000     38%     All Ages/General                               Konsentrat tinggi protein sehingga perlu dicampur dengan bahan lain.     85
+28           312 (PUYUH)  Rp 365.000     20%          Puyuh/Quail                                                 Pakan khusus puyuh untuk pertumbuhan dan produksi.     35
+29    711 LAYER PRODUKSI  Rp 350.000   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.    150
+30          EH 710 LAYER  Rp 350.000     15%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     12","Berdasarkan katalog resmi PT Cipta Sama Abadi, berikut adalah informasi mengenai produk BR11:
+
+Produk BR11 tersedia dengan stok sebanyak 72 unit. Pakan ini sangat direkomendasikan untuk anak ayam pada fase starter (0-4 minggu) karena memiliki kandungan protein sebesar 21%. Produk ini diformulasikan khusus untuk membantu pertumbuhan tulang dan daging yang cepat pada masa awal pertumbuhan unggas Anda.
+
+Jika Anda membutuhkan alternatif lain dengan spesifikasi serupa untuk fase starter, kami juga menyediakan produk berikut:
+1. BR 11+ dengan harga Rp 440.000 (Stok: 80)
+2. BRO 1 dengan harga Rp 435.000 (Stok: 125)
+
+Kedua produk alternatif tersebut juga memiliki kandungan protein 21% yang sesuai untuk fase starter anak ayam. Apakah ada informasi lain yang dapat saya bantu?"
+2026-05-23T23:17:09.690768,halo,"                    name       price protein         age_category                                                                                        description  stock
+0                   BR11  Rp 450.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     72
+1                   BR12  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    120
+2                  BR12G  Rp 437.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     45
+3                510/DOC  Rp 472.500     23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    110
+4                    511  Rp 472.500  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     95
+5                    512  Rp 467.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     75
+6                  511 B  Rp 450.000  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     60
+7                  512 B  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    130
+8                    594  Rp 462.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     25
+9                  582 K  Rp 240.000     14%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    140
+10         324 (PETELUR)  Rp 370.000   18.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     90
+11                   144  Rp 495.000     38%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     10
+12                   152  Rp 650.000     36%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     55
+13                   551  Rp 520.000     17%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    115
+14                  520S  Rp 437.500     20%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     70
+15                   521  Rp 387.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    100
+16                BR 11+  Rp 440.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     80
+17     112 KONST BROILER  Rp 652.500     38%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     40
+18                 124 P  Rp 432.500     36%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.    134
+19            CHOI / DOC  Rp 420.000  22-24%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     50
+20             BPS / DOC  Rp 440.000     22%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    105
+21         295 (PETELUR)  Rp 362.500   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     30
+22                BRO 1   Rp 435.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    125
+23                 CP 51  Rp 355.000     17%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     65
+24          EH 201 BEBEK  Rp 370.000     18%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.     20
+25        EH 202 A BEBEK  Rp 355.000     16%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.    145
+26  EH 303 (BEBEK TELUR)  Rp 364.000     18%           Bebek/Duck              Pakan khusus untuk bebek/itik. Sangat cocok untuk memaksimalkan produksi telur bebek.     15
+27     EH 811 KONSENTRAT  Rp 440.000     38%     All Ages/General                               Konsentrat tinggi protein sehingga perlu dicampur dengan bahan lain.     85
+28           312 (PUYUH)  Rp 365.000     20%          Puyuh/Quail                                                 Pakan khusus puyuh untuk pertumbuhan dan produksi.     35
+29    711 LAYER PRODUKSI  Rp 350.000   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.    150
+30          EH 710 LAYER  Rp 350.000     15%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     12",Halo! Saya Asisten Virtual PT Cipta Sama Abadi. Ada yang bisa saya bantu terkait ketersediaan dan rekomendasi pakan unggas kami hari ini?
+2026-05-23T23:17:17.616297,siapa presiden sekarang?,"                    name       price protein         age_category                                                                                        description  stock
+0                   BR11  Rp 450.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     72
+1                   BR12  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    120
+2                  BR12G  Rp 437.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     45
+3                510/DOC  Rp 472.500     23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    110
+4                    511  Rp 472.500  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     95
+5                    512  Rp 467.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     75
+6                  511 B  Rp 450.000  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     60
+7                  512 B  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    130
+8                    594  Rp 462.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     25
+9                  582 K  Rp 240.000     14%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    140
+10         324 (PETELUR)  Rp 370.000   18.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     90
+11                   144  Rp 495.000     38%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     10
+12                   152  Rp 650.000     36%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     55
+13                   551  Rp 520.000     17%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    115
+14                  520S  Rp 437.500     20%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     70
+15                   521  Rp 387.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    100
+16                BR 11+  Rp 440.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     80
+17     112 KONST BROILER  Rp 652.500     38%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     40
+18                 124 P  Rp 432.500     36%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.    134
+19            CHOI / DOC  Rp 420.000  22-24%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     50
+20             BPS / DOC  Rp 440.000     22%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    105
+21         295 (PETELUR)  Rp 362.500   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     30
+22                BRO 1   Rp 435.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    125
+23                 CP 51  Rp 355.000     17%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     65
+24          EH 201 BEBEK  Rp 370.000     18%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.     20
+25        EH 202 A BEBEK  Rp 355.000     16%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.    145
+26  EH 303 (BEBEK TELUR)  Rp 364.000     18%           Bebek/Duck              Pakan khusus untuk bebek/itik. Sangat cocok untuk memaksimalkan produksi telur bebek.     15
+27     EH 811 KONSENTRAT  Rp 440.000     38%     All Ages/General                               Konsentrat tinggi protein sehingga perlu dicampur dengan bahan lain.     85
+28           312 (PUYUH)  Rp 365.000     20%          Puyuh/Quail                                                 Pakan khusus puyuh untuk pertumbuhan dan produksi.     35
+29    711 LAYER PRODUKSI  Rp 350.000   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.    150
+30          EH 710 LAYER  Rp 350.000     15%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     12","Mohon maaf, sebagai konsultan resmi PT Cipta Sama Abadi, saya hanya dapat melayani pertanyaan seputar produk pakan unggas dari katalog resmi kami. Apakah ada hal lain terkait kebutuhan nutrisi atau rekomendasi pakan untuk ternak Anda yang bisa saya bantu?"
+2026-05-23T23:17:45.080888,cek stok br11 dan fungsinya apa,"                    name       price protein         age_category                                                                                        description  stock
+0                   BR11  Rp 450.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     72
+1                   BR12  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    120
+2                  BR12G  Rp 437.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     45
+3                510/DOC  Rp 472.500     23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    110
+4                    511  Rp 472.500  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     95
+5                    512  Rp 467.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     75
+6                  511 B  Rp 450.000  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     60
+7                  512 B  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    130
+8                    594  Rp 462.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     25
+9                  582 K  Rp 240.000     14%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    140
+10         324 (PETELUR)  Rp 370.000   18.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     90
+11                   144  Rp 495.000     38%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     10
+12                   152  Rp 650.000     36%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     55
+13                   551  Rp 520.000     17%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    115
+14                  520S  Rp 437.500     20%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     70
+15                   521  Rp 387.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    100
+16                BR 11+  Rp 440.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     80
+17     112 KONST BROILER  Rp 652.500     38%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     40
+18                 124 P  Rp 432.500     36%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.    134
+19            CHOI / DOC  Rp 420.000  22-24%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     50
+20             BPS / DOC  Rp 440.000     22%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    105
+21         295 (PETELUR)  Rp 362.500   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     30
+22                BRO 1   Rp 435.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    125
+23                 CP 51  Rp 355.000     17%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     65
+24          EH 201 BEBEK  Rp 370.000     18%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.     20
+25        EH 202 A BEBEK  Rp 355.000     16%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.    145
+26  EH 303 (BEBEK TELUR)  Rp 364.000     18%           Bebek/Duck              Pakan khusus untuk bebek/itik. Sangat cocok untuk memaksimalkan produksi telur bebek.     15
+27     EH 811 KONSENTRAT  Rp 440.000     38%     All Ages/General                               Konsentrat tinggi protein sehingga perlu dicampur dengan bahan lain.     85
+28           312 (PUYUH)  Rp 365.000     20%          Puyuh/Quail                                                 Pakan khusus puyuh untuk pertumbuhan dan produksi.     35
+29    711 LAYER PRODUKSI  Rp 350.000   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.    150
+30          EH 710 LAYER  Rp 350.000     15%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     12","Berdasarkan katalog resmi PT Cipta Sama Abadi, berikut adalah informasi mengenai produk yang Anda tanyakan:
+
+Produk BR11 tersedia dengan stok sebanyak 72 unit. Harga untuk produk ini adalah Rp 450.000. Pakan ini diformulasikan khusus untuk anak ayam atau DOC pada fase awal atau starter. Fungsi utamanya adalah untuk membantu pertumbuhan tulang dan daging ayam yang cepat pada masa awal kehidupannya.
+
+Apakah ada informasi lain mengenai produk kami yang ingin Anda ketahui?"
+2026-05-23T23:18:54.287465,jika saya beli 5 apakah aman di taro di gudang selama sebulan?,"                    name       price protein         age_category                                                                                        description  stock
+0                   BR11  Rp 450.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     72
+1                   BR12  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    120
+2                  BR12G  Rp 437.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     45
+3                510/DOC  Rp 472.500     23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    110
+4                    511  Rp 472.500  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     95
+5                    512  Rp 467.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     75
+6                  511 B  Rp 450.000  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     60
+7                  512 B  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    130
+8                    594  Rp 462.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     25
+9                  582 K  Rp 240.000     14%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    140
+10         324 (PETELUR)  Rp 370.000   18.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     90
+11                   144  Rp 495.000     38%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     10
+12                   152  Rp 650.000     36%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     55
+13                   551  Rp 520.000     17%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    115
+14                  520S  Rp 437.500     20%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     70
+15                   521  Rp 387.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    100
+16                BR 11+  Rp 440.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     80
+17     112 KONST BROILER  Rp 652.500     38%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     40
+18                 124 P  Rp 432.500     36%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.    134
+19            CHOI / DOC  Rp 420.000  22-24%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     50
+20             BPS / DOC  Rp 440.000     22%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    105
+21         295 (PETELUR)  Rp 362.500   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     30
+22                BRO 1   Rp 435.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    125
+23                 CP 51  Rp 355.000     17%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     65
+24          EH 201 BEBEK  Rp 370.000     18%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.     20
+25        EH 202 A BEBEK  Rp 355.000     16%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.    145
+26  EH 303 (BEBEK TELUR)  Rp 364.000     18%           Bebek/Duck              Pakan khusus untuk bebek/itik. Sangat cocok untuk memaksimalkan produksi telur bebek.     15
+27     EH 811 KONSENTRAT  Rp 440.000     38%     All Ages/General                               Konsentrat tinggi protein sehingga perlu dicampur dengan bahan lain.     85
+28           312 (PUYUH)  Rp 365.000     20%          Puyuh/Quail                                                 Pakan khusus puyuh untuk pertumbuhan dan produksi.     35
+29    711 LAYER PRODUKSI  Rp 350.000   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.    150
+30          EH 710 LAYER  Rp 350.000     15%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     12","Mohon maaf, sebagai konsultan resmi PT Cipta Sama Abadi, saya tidak memiliki panduan teknis mengenai durasi penyimpanan produk di gudang pelanggan, karena hal tersebut bergantung pada kondisi sanitasi, suhu, dan kelembapan di tempat penyimpanan Anda.
+
+Untuk kebutuhan pakan unggas, berikut adalah daftar produk yang tersedia dalam katalog resmi PT Cipta Sama Abadi yang dapat Anda pertimbangkan sesuai dengan fase ternak Anda:
+
+1. BR11 (Starter): Rp 450.000, protein 21 persen, stok 72 unit.
+2. BR12 (Grower): Rp 447.500, protein 19 persen, stok 120 unit.
+3. BR12G (Grower): Rp 437.500, protein 19 persen, stok 45 unit.
+4. 510/DOC (Starter): Rp 472.500, protein 23 persen, stok 110 unit.
+5. 511 (Starter): Rp 472.500, protein 21-23 persen, stok 95 unit.
+6. 512 (Grower): Rp 467.500, protein 19 persen, stok 75 unit.
+7. 511 B (Starter): Rp 450.000, protein 21-23 persen, stok 60 unit.
+8. 512 B (Grower): Rp 447.500, protein 19 persen, stok 130 unit.
+9. 594 (All Ages): Rp 462.500, protein 19 persen, stok 25 unit.
+10. 582 K (All Ages): Rp 240.000, protein 14 persen, stok 140 unit.
+11. 324 (PETELUR): Rp 370.000, protein 18.5 persen, stok 90 unit.
+12. 144 (All Ages): Rp 495.000, protein 38 persen, stok 10 unit.
+13. 152 (All Ages): Rp 650.000, protein 36 persen, stok 55 unit.
+14. 551 (All Ages): Rp 520.000, protein 17 persen, stok 115 unit.
+15. 520S (All Ages): Rp 437.500, protein 20 persen, stok 70 unit.
+16. 521 (All Ages): Rp 387.500, protein 19 persen, stok 100 unit.
+17. BR 11+ (Starter): Rp 440.000, protein 21 persen, stok 80 unit.
+18. 112 KONST BROILER (Starter): Rp 652.500, protein 38 persen, stok 40 unit.
+19. 124 P (Layer): Rp 432.500, protein 36 persen, stok 134 unit.
+20. CHOI / DOC (Starter): Rp 420.000, protein 22-24 persen, stok 50 unit.
+21. BPS / DOC (Starter): Rp 440.000, protein 22 persen, stok 105 unit.
+22. 295 (PETELUR): Rp 362.500, protein 17.5 persen, stok 30 unit.
+23. BRO 1 (Starter): Rp 435.000, protein 21 persen, stok 125 unit.
+24. CP 51 (Layer): Rp 355.000, protein 17 persen, stok 65 unit.
+25. EH 201 BEBEK (Bebek): Rp 370.000, protein 18 persen, stok 20 unit.
+26. EH 202 A BEBEK (Bebek): Rp 355.000, protein 16 persen, stok 145 unit.
+27. EH 303 (BEBEK TELUR): Rp 364.000, protein 18 persen, stok 15 unit.
+28. EH 811 KONSENTRAT (All Ages): Rp 440.000, protein 38 persen, stok 85 unit.
+29. 312 (PUYUH): Rp 365.000, protein 20 persen, stok 35 unit.
+30. 711 LAYER PRODUKSI (Layer): Rp 350.000, protein 17.5 persen, stok 150 unit.
+31. EH 710 LAYER (Layer): Rp 350.000, protein 15 persen, stok 12 unit.
+
+Apakah ada dari produk tersebut yang ingin Anda pesan untuk kebutuhan ternak Anda?"
+2026-05-23T23:19:55.162938,berapa normalnya suhu untuk ruang penyimpanannya?,"                    name       price protein         age_category                                                                                        description  stock
+0                   BR11  Rp 450.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     72
+1                   BR12  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    120
+2                  BR12G  Rp 437.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     45
+3                510/DOC  Rp 472.500     23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    110
+4                    511  Rp 472.500  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     95
+5                    512  Rp 467.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     75
+6                  511 B  Rp 450.000  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     60
+7                  512 B  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    130
+8                    594  Rp 462.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     25
+9                  582 K  Rp 240.000     14%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    140
+11                   144  Rp 495.000     38%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     10
+12                   152  Rp 650.000     36%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     55
+13                   551  Rp 520.000     17%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    115
+14                  520S  Rp 437.500     20%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     70
+15                   521  Rp 387.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    100
+16                BR 11+  Rp 440.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     80
+17     112 KONST BROILER  Rp 652.500     38%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     40
+19            CHOI / DOC  Rp 420.000  22-24%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     50
+20             BPS / DOC  Rp 440.000     22%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    105
+21         295 (PETELUR)  Rp 362.500   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     30
+22                BRO 1   Rp 435.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    125
+23                 CP 51  Rp 355.000     17%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     65
+24          EH 201 BEBEK  Rp 370.000     18%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.     20
+25        EH 202 A BEBEK  Rp 355.000     16%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.    145
+26  EH 303 (BEBEK TELUR)  Rp 364.000     18%           Bebek/Duck              Pakan khusus untuk bebek/itik. Sangat cocok untuk memaksimalkan produksi telur bebek.     15
+27     EH 811 KONSENTRAT  Rp 440.000     38%     All Ages/General                               Konsentrat tinggi protein sehingga perlu dicampur dengan bahan lain.     85
+28           312 (PUYUH)  Rp 365.000     20%          Puyuh/Quail                                                 Pakan khusus puyuh untuk pertumbuhan dan produksi.     35","Mohon maaf, sebagai konsultan resmi PT Cipta Sama Abadi, saya tidak memiliki panduan teknis mengenai suhu ideal untuk ruang penyimpanan produk di gudang pelanggan. Kualitas penyimpanan sangat bergantung pada kondisi lingkungan di lokasi Anda.
+
+Namun, untuk kebutuhan nutrisi ternak Anda, berikut adalah pilihan produk dari katalog resmi PT Cipta Sama Abadi yang dapat Anda sesuaikan dengan fase ternak:
+
+Untuk fase Starter atau anak ayam, kami merekomendasikan:
+1. CHOI / DOC: Rp 420.000 dengan protein 22-24 persen, cocok untuk pertumbuhan cepat.
+2. BRO 1: Rp 435.000 dengan protein 21 persen, pilihan ekonomis untuk masa awal.
+3. BR 11+: Rp 440.000 dengan protein 21 persen.
+
+Untuk fase Grower atau pembesaran:
+1. BR12G: Rp 437.500 dengan protein 19 persen, sangat baik untuk menjaga stamina.
+2. BR12: Rp 447.500 dengan protein 19 persen untuk pembentukan postur.
+3. 512 B: Rp 447.500 dengan protein 19 persen.
+
+Untuk kebutuhan ayam petelur (Layer):
+1. CP 51: Rp 355.000 dengan protein 17 persen untuk kualitas cangkang.
+2. 295 (PETELUR): Rp 362.500 dengan protein 17.5 persen untuk kuantitas telur.
+
+Untuk kebutuhan khusus bebek atau puyuh:
+1. EH 202 A BEBEK: Rp 355.000 dengan protein 16 persen.
+2. 312 (PUYUH): Rp 365.000 dengan protein 20 persen untuk produksi.
+
+Apakah ada dari produk tersebut yang ingin Anda pesan hari ini?"
+2026-05-23T23:20:11.353962,jika saya beli 5 berapa total biayanya?,"                    name       price protein         age_category                                                                                        description  stock
+0                   BR11  Rp 450.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     72
+1                   BR12  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    120
+2                  BR12G  Rp 437.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     45
+3                510/DOC  Rp 472.500     23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    110
+4                    511  Rp 472.500  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     95
+5                    512  Rp 467.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     75
+6                  511 B  Rp 450.000  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     60
+7                  512 B  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    130
+8                    594  Rp 462.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     25
+9                  582 K  Rp 240.000     14%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    140
+11                   144  Rp 495.000     38%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     10
+12                   152  Rp 650.000     36%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     55
+13                   551  Rp 520.000     17%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    115
+14                  520S  Rp 437.500     20%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     70
+15                   521  Rp 387.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    100
+16                BR 11+  Rp 440.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     80
+17     112 KONST BROILER  Rp 652.500     38%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     40
+19            CHOI / DOC  Rp 420.000  22-24%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     50
+20             BPS / DOC  Rp 440.000     22%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    105
+21         295 (PETELUR)  Rp 362.500   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     30
+22                BRO 1   Rp 435.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    125
+23                 CP 51  Rp 355.000     17%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     65
+24          EH 201 BEBEK  Rp 370.000     18%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.     20
+25        EH 202 A BEBEK  Rp 355.000     16%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.    145
+26  EH 303 (BEBEK TELUR)  Rp 364.000     18%           Bebek/Duck              Pakan khusus untuk bebek/itik. Sangat cocok untuk memaksimalkan produksi telur bebek.     15
+28           312 (PUYUH)  Rp 365.000     20%          Puyuh/Quail                                                 Pakan khusus puyuh untuk pertumbuhan dan produksi.     35","Untuk pembelian 5 unit produk, total biaya yang perlu Anda siapkan adalah 5 dikalikan dengan harga satuan produk yang Anda pilih. Sebagai contoh, jika Anda memilih produk BR11 dengan harga Rp 450.000 per unit, maka total biayanya adalah Rp 2.250.000.
+
+Berdasarkan katalog resmi PT Cipta Sama Abadi, berikut adalah beberapa rekomendasi produk yang dapat Anda pilih sesuai dengan kebutuhan ternak Anda:
+
+Untuk anak ayam atau fase starter, kami memiliki pilihan berikut:
+1. CHOI / DOC seharga Rp 420.000, memiliki kandungan protein tinggi 22-24 persen yang sangat baik untuk pertumbuhan tulang dan daging yang cepat.
+2. BRO 1 seharga Rp 435.000, dengan protein 21 persen yang efektif untuk mendukung masa awal pertumbuhan ayam.
+3. BR 11+ seharga Rp 440.000, dengan protein 21 persen yang dirancang khusus untuk fase starter.
+
+Untuk fase pembesaran atau grower, kami merekomendasikan:
+1. BR12G seharga Rp 437.500, dengan protein 19 persen untuk menjaga stamina dan pembentukan postur.
+2. BR12 seharga Rp 447.500, dengan protein 19 persen untuk mendukung perkembangan ayam di fase grower.
+3. 512 B seharga Rp 447.500, dengan protein 19 persen untuk menjaga kondisi ayam selama fase pembesaran.
+
+Untuk ayam petelur atau layer, tersedia:
+1. CP 51 seharga Rp 355.000, dengan protein 17 persen yang berfungsi meningkatkan kualitas cangkang dan kuantitas telur.
+2. 295 (PETELUR) seharga Rp 362.500, dengan protein 17.5 persen untuk mendukung produktivitas telur yang maksimal.
+
+Untuk kebutuhan khusus bebek atau puyuh:
+1. EH 202 A BEBEK seharga Rp 355.000, dengan protein 16 persen sebagai pakan khusus bebek.
+2. 312 (PUYUH) seharga Rp 365.000, dengan protein 20 persen yang mendukung pertumbuhan dan produksi puyuh.
+
+Apakah ada dari daftar tersebut yang ingin Anda pesan untuk kebutuhan ternak Anda hari ini?"
+2026-06-27T15:00:44.340445,saya memiliki anak ayam berusia 2 bulan apa pakan yang cocok,"                    name       price protein         age_category                                                                                        description  stock
+0                   BR11  Rp 450.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     72
+1                   BR12  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    120
+2                  BR12G  Rp 437.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     45
+3                510/DOC  Rp 472.500     23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    110
+4                    511  Rp 472.500  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     95
+5                    512  Rp 467.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     75
+6                  511 B  Rp 450.000  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     60
+7                  512 B  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    130
+8                    594  Rp 462.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     25
+9                  582 K  Rp 240.000     14%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    140
+10         324 (PETELUR)  Rp 370.000   18.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     90
+11                   144  Rp 495.000     38%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     10
+12                   152  Rp 650.000     36%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     55
+13                   551  Rp 520.000     17%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    115
+14                  520S  Rp 437.500     20%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     70
+15                   521  Rp 387.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    100
+16                BR 11+  Rp 440.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     80
+17     112 KONST BROILER  Rp 652.500     38%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     40
+18                 124 P  Rp 432.500     36%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.    134
+19            CHOI / DOC  Rp 420.000  22-24%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     50
+20             BPS / DOC  Rp 440.000     22%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    105
+21         295 (PETELUR)  Rp 362.500   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     30
+22                BRO 1   Rp 435.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    125
+23                 CP 51  Rp 355.000     17%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     65
+24          EH 201 BEBEK  Rp 370.000     18%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.     20
+25        EH 202 A BEBEK  Rp 355.000     16%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.    145
+26  EH 303 (BEBEK TELUR)  Rp 364.000     18%           Bebek/Duck              Pakan khusus untuk bebek/itik. Sangat cocok untuk memaksimalkan produksi telur bebek.     15
+28           312 (PUYUH)  Rp 365.000     20%          Puyuh/Quail                                                 Pakan khusus puyuh untuk pertumbuhan dan produksi.     35
+29    711 LAYER PRODUKSI  Rp 350.000   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.    150
+30          EH 710 LAYER  Rp 350.000     15%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     12","Berdasarkan katalog resmi PT Cipta Sama Abadi, untuk anak ayam yang berusia 2 bulan, Anda memasuki fase pembesaran atau grower (4-8 minggu). Berikut adalah rekomendasi produk kami yang sesuai untuk fase tersebut:
+
+1. BR12 (Rp 447.500)
+Produk ini sangat cocok untuk ayam fase pembesaran karena diformulasikan khusus untuk menjaga stamina dan membantu pembentukan postur tubuh ayam Anda.
+
+2. 512 (Rp 467.500)
+Produk ini juga ditujukan untuk fase grower. Sangat efektif dalam menjaga stamina serta mendukung pembentukan postur ayam selama masa pertumbuhan.
+
+3. BR12G (Rp 437.500)
+Merupakan pilihan yang ekonomis untuk fase pembesaran dengan fungsi yang sama yaitu menjaga stamina dan memastikan pembentukan postur yang baik pada ayam.
+
+4. 512 B (Rp 447.500)
+Pilihan berkualitas lainnya untuk fase grower yang membantu menjaga stamina dan pembentukan postur tubuh ayam secara optimal.
+
+Seluruh produk di atas dirancang untuk mendukung kebutuhan nutrisi spesifik ayam Anda pada fase pembesaran. Silakan informasikan jika Anda memerlukan bantuan lebih lanjut terkait ketersediaan stok produk tersebut."
+2026-06-27T15:02:50.876542,siapa presiden saat ini,"                    name       price protein         age_category                                                                                        description  stock
+0                   BR11  Rp 450.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     72
+1                   BR12  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    120
+2                  BR12G  Rp 437.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     45
+3                510/DOC  Rp 472.500     23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    110
+4                    511  Rp 472.500  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     95
+5                    512  Rp 467.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     75
+6                  511 B  Rp 450.000  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     60
+7                  512 B  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    130
+8                    594  Rp 462.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     25
+9                  582 K  Rp 240.000     14%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    140
+10         324 (PETELUR)  Rp 370.000   18.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     90
+11                   144  Rp 495.000     38%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     10
+12                   152  Rp 650.000     36%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     55
+13                   551  Rp 520.000     17%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    115
+14                  520S  Rp 437.500     20%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     70
+15                   521  Rp 387.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    100
+16                BR 11+  Rp 440.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     80
+17     112 KONST BROILER  Rp 652.500     38%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     40
+18                 124 P  Rp 432.500     36%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.    134
+19            CHOI / DOC  Rp 420.000  22-24%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     50
+20             BPS / DOC  Rp 440.000     22%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    105
+21         295 (PETELUR)  Rp 362.500   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     30
+22                BRO 1   Rp 435.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    125
+23                 CP 51  Rp 355.000     17%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     65
+24          EH 201 BEBEK  Rp 370.000     18%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.     20
+25        EH 202 A BEBEK  Rp 355.000     16%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.    145
+26  EH 303 (BEBEK TELUR)  Rp 364.000     18%           Bebek/Duck              Pakan khusus untuk bebek/itik. Sangat cocok untuk memaksimalkan produksi telur bebek.     15
+28           312 (PUYUH)  Rp 365.000     20%          Puyuh/Quail                                                 Pakan khusus puyuh untuk pertumbuhan dan produksi.     35
+29    711 LAYER PRODUKSI  Rp 350.000   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.    150
+30          EH 710 LAYER  Rp 350.000     15%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     12","Mohon maaf, sebagai asisten virtual PT Cipta Sama Abadi, saya hanya dapat memberikan informasi terkait produk pakan unggas sesuai dengan katalog resmi kami. Saya tidak dapat menanggapi pertanyaan di luar topik peternakan. Terima kasih atas pengertian Anda."
+2026-06-27T15:03:07.433785,2 + 2 berapa,"                 name       price protein         age_category                                                                                        description  stock
+1                BR12  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    120
+2               BR12G  Rp 437.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     45
+5                 512  Rp 467.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     75
+7               512 B  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    130
+9               582 K  Rp 240.000     14%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    140
+10      324 (PETELUR)  Rp 370.000   18.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     90
+12                152  Rp 650.000     36%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     55
+14               520S  Rp 437.500     20%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     70
+15                521  Rp 387.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    100
+16             BR 11+  Rp 440.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     80
+17  112 KONST BROILER  Rp 652.500     38%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     40
+18              124 P  Rp 432.500     36%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.    134
+21      295 (PETELUR)  Rp 362.500   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     30
+24       EH 201 BEBEK  Rp 370.000     18%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.     20
+25     EH 202 A BEBEK  Rp 355.000     16%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.    145
+28        312 (PUYUH)  Rp 365.000     20%          Puyuh/Quail                                                 Pakan khusus puyuh untuk pertumbuhan dan produksi.     35","Mohon maaf, sebagai asisten virtual PT Cipta Sama Abadi, saya hanya dapat memberikan informasi terkait produk pakan unggas sesuai dengan katalog resmi kami. Saya tidak dapat menanggapi pertanyaan di luar topik peternakan. Terima kasih atas pengertian Anda."
+2026-06-27T15:03:47.424498,saya mau beli 2 sak produk pakan ayam terus nambah beli lagi 3 sak jadi berapa sak ya,"                    name       price protein         age_category                                                                                        description  stock
+0                   BR11  Rp 450.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     72
+1                   BR12  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    120
+2                  BR12G  Rp 437.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     45
+3                510/DOC  Rp 472.500     23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    110
+4                    511  Rp 472.500  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     95
+5                    512  Rp 467.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.     75
+6                  511 B  Rp 450.000  21-23%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     60
+7                  512 B  Rp 447.500     19%   Grower (4-8 weeks)                 Cocok untuk ayam fase pembesaran (grower). Menjaga stamina dan pembentukan postur.    130
+8                    594  Rp 462.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     25
+9                  582 K  Rp 240.000     14%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    140
+10         324 (PETELUR)  Rp 370.000   18.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     90
+11                   144  Rp 495.000     38%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     10
+12                   152  Rp 650.000     36%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     55
+13                   551  Rp 520.000     17%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    115
+14                  520S  Rp 437.500     20%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.     70
+15                   521  Rp 387.500     19%     All Ages/General                                               Pakan unggas berkualitas tinggi untuk berbagai fase.    100
+16                BR 11+  Rp 440.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     80
+17     112 KONST BROILER  Rp 652.500     38%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     40
+18                 124 P  Rp 432.500     36%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.    134
+19            CHOI / DOC  Rp 420.000  22-24%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.     50
+20             BPS / DOC  Rp 440.000     22%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    105
+21         295 (PETELUR)  Rp 362.500   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     30
+22                BRO 1   Rp 435.000     21%  Starter (0-4 weeks)  Cocok untuk anak ayam (DOC) fase awal/starter. Membantu pertumbuhan tulang dan daging yang cepat.    125
+23                 CP 51  Rp 355.000     17%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     65
+24          EH 201 BEBEK  Rp 370.000     18%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.     20
+25        EH 202 A BEBEK  Rp 355.000     16%           Bebek/Duck                                                                     Pakan khusus untuk bebek/itik.    145
+26  EH 303 (BEBEK TELUR)  Rp 364.000     18%           Bebek/Duck              Pakan khusus untuk bebek/itik. Sangat cocok untuk memaksimalkan produksi telur bebek.     15
+28           312 (PUYUH)  Rp 365.000     20%          Puyuh/Quail                                                 Pakan khusus puyuh untuk pertumbuhan dan produksi.     35
+29    711 LAYER PRODUKSI  Rp 350.000   17.5%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.    150
+30          EH 710 LAYER  Rp 350.000     15%    Layer (18+ weeks)             Pakan khusus ayam petelur (layer). Meningkatkan kualitas cangkang dan kuantitas telur.     12","Jika Anda membeli 2 sak kemudian menambah pembelian sebanyak 3 sak, maka total pembelian Anda menjadi 5 sak.
+
+Sebagai representatif resmi dari PT Cipta Sama Abadi, kami merekomendasikan produk berdasarkan kebutuhan fase pertumbuhan ayam Anda. Berikut adalah daftar produk pakan yang tersedia dalam katalog resmi kami:
+
+1. BR12 (Rp 447.500) - Cocok untuk fase grower (4-8 minggu), membantu menjaga stamina dan pembentukan postur.
+2. BR12G (Rp 437.500) - Pilihan ekonomis untuk fase grower dengan fungsi menjaga stamina dan pembentukan postur.
+3. 512 (Rp 467.500) - Cocok untuk fase grower guna menjaga stamina dan pembentukan postur.
+4. 512 B (Rp 447.500) - Pilihan berkualitas untuk fase grower dalam menjaga stamina dan pembentukan postur tubuh ayam.
+
+Silakan informasikan jenis produk yang Anda pilih agar kami dapat membantu memeriksa ketersediaan stok untuk 5 sak tersebut."

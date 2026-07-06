@@ -1,0 +1,26 @@
+# Ignore archived test scripts and dummy files
+archive_tests/
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+__pycache__/
+venv/
+env/
+.env
+
+# Build outputs
+.next/
+out/
+build/
+dist/
+
+# Database & Logs
+local_pakan.db
+app.log
+*.log
+
+# OS generated
+.DS_Store
+Thumbs.db
