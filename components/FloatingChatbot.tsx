@@ -49,7 +49,8 @@ export const FloatingChatbot: React.FC = () => {
     const history = messages.map(m => `${m.role}: ${m.content}`);
 
     try {
-      const response = await fetch('http://localhost:8000/api/recommend', {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+      const response = await fetch(`${apiUrl}/api/recommend`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -17,7 +17,8 @@ export const ProductGrid: React.FC<ProductGridProps> = ({ searchQuery }) => {
     const fetchProducts = async (isBackground = false) => {
       try {
         if (!isBackground) setLoading(true);
-        const response = await fetch('http://localhost:8000/api/products');
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+        const response = await fetch(`${apiUrl}/api/products`);
 
         if (!response.ok) {
           throw new Error('Failed to fetch products');
