@@ -1,3 +1,13 @@
+---
+title: Backend Pakan
+emoji: 🐔
+colorFrom: green
+colorTo: blue
+sdk: docker
+app_file: Dockerfile
+pinned: false
+---
+
 # PT. Cipta Sama Abadi - E-Commerce Poultry Feed Platform
 
 Platform E-Commerce canggih untuk penjualan pakan ternak unggas dengan integrasi AI assistant menggunakan RAG (Retrieval-Augmented Generation).
