@@ -180,6 +180,19 @@ async def debug_endpoint():
     except Exception as e:
         return {"error": str(e)}
 
+@app.get("/api/settings")
+async def get_settings(db: Session = Depends(get_db)):
+    from models import SettingsDB
+    try:
+        settings = db.query(SettingsDB).first()
+        if settings:
+            return {"whatsapp_number": settings.whatsapp_number}
+        # Fallback if table is empty
+        return {"whatsapp_number": "6287819281389"}
+    except Exception as e:
+        logger.error(f"Error fetching settings: {e}")
+        return {"whatsapp_number": "6287819281389"}
+
 @app.get("/api/products")
 async def get_products():
     """Get all products from CSV catalog"""

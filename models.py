@@ -19,3 +19,9 @@ class AdminDB(Base):
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     username = Column(String(100), unique=True, index=True, nullable=False)
     password = Column(String(255), nullable=False)
+
+class SettingsDB(Base):
+    __tablename__ = "store_settings"
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    whatsapp_number = Column(String(50), nullable=False, default="6287819281389")

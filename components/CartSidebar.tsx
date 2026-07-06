@@ -10,6 +10,7 @@ import { toast } from 'sonner';
 export const CartSidebar: React.FC = () => {
   const { state, dispatch, clearCart } = useCart();
   const [showCheckoutForm, setShowCheckoutForm] = useState(false);
+  const [isCheckingOut, setIsCheckingOut] = useState(false);
 
   if (!state.isCartOpen) return null;
 
@@ -19,9 +20,21 @@ export const CartSidebar: React.FC = () => {
 
   const handleCheckoutSubmit = async (formData: CheckoutFormData) => {
     try {
-      // Build WhatsApp message
-      const waNumber = process.env.NEXT_PUBLIC_WA_NUMBER || "6287819281389";
+      setIsCheckingOut(true);
+      // Fetch WA Number from DB
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+      let waNumber = "6287819281389"; // fallback
+      try {
+        const res = await fetch(`${apiUrl}/api/settings`);
+        if (res.ok) {
+          const data = await res.json();
+          waNumber = data.whatsapp_number || waNumber;
+        }
+      } catch (e) {
+        console.error("Failed to fetch WA number", e);
+      }
       
+      // Build WhatsApp message
       let message = `*HALO PT CIPTA SAMA ABADI* 🐔\n`;
       message += `Saya ingin memesan pakan berikut:\n\n`;
       
@@ -59,8 +72,9 @@ export const CartSidebar: React.FC = () => {
         }
       );
     } catch (error) {
-      console.error('Checkout error:', error);
       toast.error(`Terjadi kesalahan saat memproses pesanan.`);
+    } finally {
+      setIsCheckingOut(false);
     }
   };
 
@@ -143,7 +157,7 @@ export const CartSidebar: React.FC = () => {
           isOpen={showCheckoutForm}
           onClose={handleCloseCheckoutForm}
           onSubmit={handleCheckoutSubmit}
-          isProcessing={false}
+          isProcessing={isCheckingOut}
           cartItems={state.items}
           total={state.total}
         />
