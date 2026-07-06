@@ -14,7 +14,6 @@ interface CheckoutFormProps {
 
 export interface CheckoutFormData {
   nama: string;
-  email: string;
   phone: string;
   alamat: string;
 }
@@ -29,7 +28,6 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({
 }) => {
   const [formData, setFormData] = useState<CheckoutFormData>({
     nama: '',
-    email: '',
     phone: '',
     alamat: '',
   });
@@ -40,8 +38,6 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({
     const newErrors: Partial<CheckoutFormData> = {};
 
     if (!formData.nama.trim()) newErrors.nama = 'Nama lengkap wajib diisi';
-    if (!formData.email.trim()) newErrors.email = 'Email wajib diisi';
-    else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Format email tidak valid';
     if (!formData.phone.trim()) newErrors.phone = 'Nomor HP wajib diisi';
     if (!formData.alamat.trim()) newErrors.alamat = 'Alamat pengiriman wajib diisi';
 
@@ -95,21 +91,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({
             {errors.nama && <p className="text-red-500 text-sm mt-1">{errors.nama}</p>}
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Alamat Email *
-            </label>
-            <input
-              type="email"
-              value={formData.email}
-              onChange={(e) => handleChange('email', e.target.value)}
-              className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                errors.email ? 'border-red-500' : 'border-gray-300'
-              }`}
-              placeholder="contoh@email.com"
-            />
-            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
-          </div>
+
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -163,9 +145,10 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({
           <button
             type="submit"
             disabled={isProcessing}
-            className="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-xl shadow-md hover:shadow-lg hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed transition-all"
+            className="w-full bg-[#25D366] text-white font-bold py-3 px-4 rounded-xl shadow-md hover:shadow-lg hover:bg-[#128C7E] disabled:bg-green-300 disabled:cursor-not-allowed transition-all flex items-center justify-center space-x-2"
           >
-            {isProcessing ? 'Memproses Pesanan...' : 'Konfirmasi Pesanan'}
+            <span>{isProcessing ? 'Memproses...' : 'Pesan via WhatsApp'}</span>
+            {!isProcessing && <span className="text-xl">💬</span>}
           </button>
         </form>
       </div>

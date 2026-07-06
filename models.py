@@ -12,3 +12,10 @@ class ProductDB(Base):
     description = Column(Text, nullable=True)
     stock = Column(Integer, default=0)
     image_url = Column(Text, nullable=True)
+
+class AdminDB(Base):
+    __tablename__ = "admins"
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    username = Column(String(100), unique=True, index=True, nullable=False)
+    password = Column(String(255), nullable=False)

@@ -19,68 +19,48 @@ export const CartSidebar: React.FC = () => {
 
   const handleCheckoutSubmit = async (formData: CheckoutFormData) => {
     try {
-      console.log('Attempting checkout with data:', {
-        customer: formData,
-        items: state.items,
-        total: state.total,
+      // Build WhatsApp message
+      const waNumber = process.env.NEXT_PUBLIC_WA_NUMBER || "6287819281389";
+      
+      let message = `*HALO PT CIPTA SAMA ABADI* 🐔\n`;
+      message += `Saya ingin memesan pakan berikut:\n\n`;
+      
+      state.items.forEach((item, index) => {
+        message += `${index + 1}. ${item.product.name} (x${item.quantity}) - ${item.product.price}\n`;
       });
-
-      const response = await fetch('http://localhost:8000/api/checkout', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          customer: formData,
-          items: state.items,
-          total: state.total,
-        }),
-      });
-
-      console.log('Response status:', response.status);
-
-      if (!response.ok) {
-        const errorText = await response.text();
-        console.error('Response error:', errorText);
-        throw new Error(`Server error: ${response.status} - ${errorText}`);
-      }
-
-      const result = await response.json();
-      console.log('Checkout result:', result);
-
-      if (result.success) {
-        toast.success(
-          `Berhasil! Nomor Resi: ${result.resi_number}. Email konfirmasi telah dikirim ke ${formData.email}.`,
-          {
-            duration: 10000,
-            style: {
-              background: '#22c55e',
-              color: 'white',
-              border: 'none',
-            },
-          }
-        );
-
-        clearCart();
-        dispatch({ type: 'CLOSE_CART' });
-        setShowCheckoutForm(false);
-        // Trigger event to refresh product catalog automatically without reloading page
-        window.dispatchEvent(new Event('checkoutSuccess'));
-      } else {
-        toast.error(`Checkout gagal: ${result.message}`, {
+      
+      message += `\n*TOTAL: Rp ${state.total.toLocaleString('id-ID')}*\n\n`;
+      message += `*Data Pengiriman:*\n`;
+      message += `Nama: ${formData.nama}\n`;
+      message += `No HP: ${formData.phone}\n`;
+      message += `Alamat: ${formData.alamat}\n\n`;
+      message += `Mohon info ongkos kirim dan ketersediaan stoknya ya. Terima kasih!`;
+      
+      const encodedMessage = encodeURIComponent(message);
+      const waUrl = `https://wa.me/${waNumber}?text=${encodedMessage}`;
+      
+      // Open WhatsApp in new tab
+      window.open(waUrl, '_blank');
+      
+      // Clear cart and show success
+      clearCart();
+      dispatch({ type: 'CLOSE_CART' });
+      setShowCheckoutForm(false);
+      
+      toast.success(
+        `Dialihkan ke WhatsApp! Lanjutkan pesanan Anda di sana.`,
+        {
           duration: 5000,
-        });
-      }
+          style: {
+            background: '#22c55e',
+            color: 'white',
+            border: 'none',
+          },
+        }
+      );
     } catch (error) {
       console.error('Checkout error:', error);
-      toast.error(`Gagal memproses pesanan: ${error.message || 'Connection failed'}. Pastikan backend server sedang berjalan.`, {
-        duration: 8000,
-        style: {
-          background: '#dc2626',
-          color: 'white',
-          border: 'none',
-        },
-      });
+      toast.error(`Terjadi kesalahan saat memproses pesanan.`);
     }
   };
 

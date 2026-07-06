@@ -225,10 +225,10 @@ async def get_products():
         return {"error": f"Failed to retrieve products: {str(e)}", "products": []}
 
 @app.post("/api/admin/login")
-async def admin_login(req: LoginRequest):
-    expected_user = os.getenv("ADMIN_USERNAME", "admin")
-    expected_pass = os.getenv("ADMIN_PASSWORD", "admin123")
-    if req.username == expected_user and req.password == expected_pass:
+async def admin_login(req: LoginRequest, db: Session = Depends(get_db)):
+    from models import AdminDB
+    admin = db.query(AdminDB).filter(AdminDB.username == req.username).first()
+    if admin and admin.password == req.password:
         return {"success": True, "token": os.getenv("ADMIN_TOKEN", "demo_admin_token_123")}
     raise HTTPException(status_code=401, detail="Invalid credentials")
 
