@@ -43,7 +43,8 @@ export default function AdminPage() {
 
     setIsLoading(true);
     try {
-      const res = await fetch('http://localhost:8000/api/products');
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+      const res = await fetch(`${apiUrl}/api/products`);
       if (res.ok) {
         const data = await res.json();
         setProducts(data.products || []);
@@ -89,9 +90,10 @@ export default function AdminPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
     const url = editingProduct 
-      ? `http://localhost:8000/api/admin/products/${encodeURIComponent(editingProduct)}`
-      : 'http://localhost:8000/api/admin/products';
+      ? `${apiUrl}/api/admin/products/${encodeURIComponent(editingProduct)}`
+      : `${apiUrl}/api/admin/products`;
     
     const method = editingProduct ? 'PUT' : 'POST';
 
@@ -124,7 +126,8 @@ export default function AdminPage() {
 
     const token = localStorage.getItem('admin_token');
     try {
-      const res = await fetch(`http://localhost:8000/api/admin/products/${encodeURIComponent(name)}`, {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+      const res = await fetch(`${apiUrl}/api/admin/products/${encodeURIComponent(name)}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
