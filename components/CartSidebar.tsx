@@ -47,7 +47,7 @@ export const CartSidebar: React.FC = () => {
       message += `Nama: ${formData.nama}\n`;
       message += `No HP: ${formData.phone}\n`;
       message += `Alamat: ${formData.alamat}\n\n`;
-      message += `Mohon info ongkos kirim dan ketersediaan stoknya ya. Terima kasih!`;
+      message += `Mohon info ongkos kirimnya ya. Terima kasih!`;
       
       const encodedMessage = encodeURIComponent(message);
       const waUrl = `https://wa.me/${waNumber}?text=${encodedMessage}`;
