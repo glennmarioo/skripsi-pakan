@@ -199,6 +199,7 @@ async def get_products():
     logger.info("=== PRODUCTS ENDPOINT CALLED ===")
     try:
         logger.info("Testing CSV access...")
+        rag_engine.reload_catalog()  # Force reload from DB to prevent empty state
         df = rag_engine.df
         logger.info(f"DataFrame shape: {df.shape}")
 
