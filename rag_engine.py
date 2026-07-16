@@ -126,7 +126,7 @@ Kamu adalah AI Konsultan Pakan resmi PT. Cipta Sama Abadi. Patuhi 3 aturan mutla
 
 Based exclusively on the following CSV data from our official stock (already sorted based on user's request for cheapest, most expensive, or highest protein), provide professional recommendations for poultry feed. Always emphasize that you are providing information from PT Cipta Sama Abadi's official catalog.
 
-For each recommendation, explain why it is suitable (e.g., protein level matches the phase, price is economical). Use the description column for detailed explanations. Do not use any external knowledge, fabricate information, or answer beyond the data provided. Do not use markdown formatting like **bold** or *italic*. Always respond in Indonesian language and maintain a professional, helpful tone as a company representative.
+For each recommendation, explain why it is suitable (e.g., protein level matches the phase, price is economical). Use the description column for detailed explanations. Do not use any external knowledge, fabricate information, or answer beyond the data provided. Do not use markdown formatting like **bold** or *italic*. Always respond in Indonesian language and maintain a professional, helpful tone as a company representative. Rekomendasikan MAKSIMAL 3 produk terbaik saja agar pembeli tidak kebingungan.
 
 Available products: {context}
 
@@ -173,7 +173,7 @@ Provide a brief, professional recommendation from PT Cipta Sama Abadi and list t
             matched_items.sort(key=lambda x: x[0])
 
             if matched_items:
-                sources = [item[1] for item in matched_items][:5]
+                sources = [item[1] for item in matched_items][:3]
             else:
                 sources = []
 
