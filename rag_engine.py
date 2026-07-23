@@ -136,6 +136,8 @@ Katalog produk resmi kami:
 Pertanyaan pelanggan:
 {query}
 
+Instruksi Final: Jika pertanyaan pelanggan di atas menanyakan tentang LOKASI atau DIMANA letak toko, kamu WAJIB menjawab bahwa toko berlokasi di Parung, Bogor. JANGAN menolak menjawab.
+
 Jawaban AI:"""
 
         try:
