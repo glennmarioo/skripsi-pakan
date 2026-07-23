@@ -20,7 +20,14 @@ jobs:
           cp Dockerfile.backend Dockerfile
           git config --global user.email "bot@ciptasamaabadi.com"
           git config --global user.name "Deploy Bot"
-          git rm -r --cached PENULISAN || true
-          git add Dockerfile
-          git commit -m "Prepare for HF Spaces" || echo "No changes to commit"
-          git push --force https://glennmarioo:$HF_TOKEN@huggingface.co/spaces/glennmarioo/backend-pakan main
+          
+          # Hapus folder PENULISAN dari workspace jika masih ada
+          rm -rf PENULISAN || true
+          
+          # Buat cabang baru tanpa riwayat masa lalu (orphan)
+          git checkout --orphan hf-deploy-branch
+          git add -A
+          git commit -m "Deploy to HF Spaces" || echo "No changes to commit"
+          
+          # Push paksa cabang baru ini ke main di Hugging Face
+          git push --force https://glennmarioo:$HF_TOKEN@huggingface.co/spaces/glennmarioo/backend-pakan hf-deploy-branch:main
