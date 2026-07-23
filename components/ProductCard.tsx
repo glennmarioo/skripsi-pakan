@@ -18,12 +18,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   };
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
-      <div className="aspect-square bg-gray-100 flex items-center justify-center overflow-hidden">
+    <div className="bg-white/90 backdrop-blur-md border border-gray-100 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 h-full flex flex-col group">
+      <div className="aspect-square bg-gray-50 flex items-center justify-center overflow-hidden">
         <img
           src={product.image_url || "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJDMTMuMSAyIDE0IDIuOSAxNCA0VjE2QzE0IDE3LjEgMTMuMSAxOCA4IDMwQzIuOSAxOCAxLjEgMTcgMSAxNlY0QzEgMi45IDIuOSAyIDQgMkMxMC4yIDIgMTIgMkgxMlpNMTIgMTJDMTMuNjUgMTIgMTUgMTMuMzUgMTUgMTVWMTVDMTUgMTYuNjUgMTMuNjUgMTggMTIgMThDMTMuNjUgMTggMTUgMTYuNjUgMTUgMTVWMTVDMTUgMTMuMzUgMTMuNjUgMTIgMTIgMTJaIiBmaWxsPSIjOWNhM2FmIi8+Cjwvc3ZnPgo="}
           alt={product.name}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
         />
       </div>
       <div className="p-4 flex-grow flex flex-col">

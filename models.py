@@ -25,3 +25,15 @@ class SettingsDB(Base):
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     whatsapp_number = Column(String(50), nullable=False, default="6287819281389")
+
+class OrderDB(Base):
+    __tablename__ = "orders"
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    customer_name = Column(String(100), nullable=False)
+    phone = Column(String(50), nullable=False)
+    address = Column(Text, nullable=False)
+    items = Column(Text, nullable=False) # Store as JSON string
+    total_price = Column(Integer, nullable=False)
+    status = Column(String(50), default="pending") # pending, confirmed
+    created_at = Column(String(100), nullable=True)

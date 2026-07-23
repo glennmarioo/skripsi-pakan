@@ -16,6 +16,17 @@ interface ProductFormData {
   image_url: string;
 }
 
+interface OrderData {
+  id: number;
+  customer_name: string;
+  phone: string;
+  address: string;
+  items: string;
+  total_price: number;
+  status: string;
+  created_at: string;
+}
+
 const initialFormState: ProductFormData = {
   name: '',
   price: '',
@@ -33,6 +44,10 @@ export default function AdminPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingProduct, setEditingProduct] = useState<string | null>(null);
   const [formData, setFormData] = useState<ProductFormData>(initialFormState);
+  
+  const [activeTab, setActiveTab] = useState<'products' | 'orders'>('products');
+  const [orders, setOrders] = useState<OrderData[]>([]);
+  const [isLoadingOrders, setIsLoadingOrders] = useState(false);
 
   const fetchProducts = async () => {
     const token = localStorage.getItem('admin_token');
@@ -61,6 +76,48 @@ export default function AdminPage() {
   useEffect(() => {
     fetchProducts();
   }, []);
+
+  const fetchOrders = async () => {
+    const token = localStorage.getItem('admin_token');
+    if (!token) return;
+    setIsLoadingOrders(true);
+    try {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+      const res = await fetch(`${apiUrl}/api/orders`, {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      if (res.ok) {
+        setOrders(await res.json());
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoadingOrders(false);
+    }
+  };
+
+  useEffect(() => {
+    if (activeTab === 'orders') fetchOrders();
+  }, [activeTab]);
+
+  const confirmOrder = async (id: number) => {
+    const token = localStorage.getItem('admin_token');
+    try {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+      const res = await fetch(`${apiUrl}/api/orders/${id}/confirm`, {
+        method: 'PUT',
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      if (res.ok) {
+        toast.success("Pesanan dikonfirmasi!");
+        fetchOrders();
+      } else {
+        toast.error("Gagal mengkonfirmasi");
+      }
+    } catch (error) {
+      toast.error("Terjadi kesalahan");
+    }
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -161,91 +218,200 @@ export default function AdminPage() {
       </nav>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold text-gray-900">Manajemen Produk (Katalog Pakan)</h2>
-          <div className="space-x-4">
-            <button 
-              onClick={() => { localStorage.removeItem('admin_token'); router.push('/admin/login'); }}
-              className="bg-gray-600 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors shadow-sm font-semibold"
+        <div className="mb-6 border-b border-gray-200">
+          <nav className="-mb-px flex space-x-8">
+            <button
+              onClick={() => setActiveTab('products')}
+              className={`whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-lg ${activeTab === 'products' ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'}`}
             >
-              Logout
+              Katalog Produk
             </button>
-            <button 
-              onClick={openAddModal}
-              className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors shadow-sm font-semibold"
+            <button
+              onClick={() => setActiveTab('orders')}
+              className={`whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-lg ${activeTab === 'orders' ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'}`}
             >
-              + Tambah Produk
+              Pesanan Masuk
             </button>
-          </div>
+          </nav>
         </div>
 
-        {/* Data Table */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama Produk</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Harga</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Protein</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kategori Umur</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stok</th>
-                  <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {isLoading ? (
-                  <tr>
-                    <td colSpan={6} className="px-6 py-10 text-center text-gray-500">
-                      Memuat data katalog...
-                    </td>
-                  </tr>
-                ) : products.length === 0 ? (
-                  <tr>
-                    <td colSpan={6} className="px-6 py-10 text-center text-gray-500">
-                      Tidak ada produk ditemukan.
-                    </td>
-                  </tr>
-                ) : (
-                  products.map((product, idx) => (
-                    <tr key={idx} className="hover:bg-gray-50">
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        <div className="flex items-center">
-                          {product.image_url && (
-                            <img src={product.image_url} alt={product.name} className="w-10 h-10 object-cover rounded mr-3" />
-                          )}
-                          {product.name}
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{product.price}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{product.protein || 'N/A'}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{product.age_category}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${product.stock > 10 ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
-                          {product.stock}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-3">
-                        <button 
-                          onClick={() => openEditModal(product)}
-                          className="text-yellow-600 hover:text-yellow-900"
-                        >
-                          Edit
-                        </button>
-                        <button 
-                          onClick={() => handleDelete(product.name)}
-                          className="text-red-600 hover:text-red-900"
-                        >
-                          Hapus
-                        </button>
-                      </td>
+        {activeTab === 'products' ? (
+          <>
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-bold text-gray-900">Manajemen Produk (Katalog Pakan)</h2>
+              <div className="space-x-4">
+                <button 
+                  onClick={() => { localStorage.removeItem('admin_token'); router.push('/admin/login'); }}
+                  className="bg-gray-600 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors shadow-sm font-semibold"
+                >
+                  Logout
+                </button>
+                <button 
+                  onClick={openAddModal}
+                  className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors shadow-sm font-semibold"
+                >
+                  + Tambah Produk
+                </button>
+              </div>
+            </div>
+
+            {/* Data Table */}
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="min-w-full divide-y divide-gray-200">
+                  <thead className="bg-gray-50">
+                    <tr>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama Produk</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Harga</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Protein</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kategori Umur</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stok</th>
+                      <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
                     </tr>
-                  ))
-                )}
-              </tbody>
-            </table>
-          </div>
-        </div>
+                  </thead>
+                  <tbody className="bg-white divide-y divide-gray-200">
+                    {isLoading ? (
+                      <tr>
+                        <td colSpan={6} className="px-6 py-10 text-center text-gray-500">
+                          Memuat data katalog...
+                        </td>
+                      </tr>
+                    ) : products.length === 0 ? (
+                      <tr>
+                        <td colSpan={6} className="px-6 py-10 text-center text-gray-500">
+                          Tidak ada produk ditemukan.
+                        </td>
+                      </tr>
+                    ) : (
+                      products.map((product, idx) => (
+                        <tr key={idx} className="hover:bg-gray-50">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                            <div className="flex items-center">
+                              {product.image_url && (
+                                <img src={product.image_url} alt={product.name} className="w-10 h-10 object-cover rounded mr-3" />
+                              )}
+                              {product.name}
+                            </div>
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{product.price}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{product.protein || 'N/A'}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{product.age_category}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${product.stock > 10 ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                              {product.stock}
+                            </span>
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-3">
+                            <button 
+                              onClick={() => openEditModal(product)}
+                              className="text-yellow-600 hover:text-yellow-900"
+                            >
+                              Edit
+                            </button>
+                            <button 
+                              onClick={() => handleDelete(product.name)}
+                              className="text-red-600 hover:text-red-900"
+                            >
+                              Hapus
+                            </button>
+                          </td>
+                        </tr>
+                      ))
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-bold text-gray-900">Pesanan Masuk</h2>
+              <button 
+                onClick={fetchOrders}
+                className="bg-blue-100 text-blue-700 px-4 py-2 rounded-md hover:bg-blue-200 transition-colors shadow-sm font-semibold"
+              >
+                Muat Ulang
+              </button>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="min-w-full divide-y divide-gray-200">
+                  <thead className="bg-gray-50">
+                    <tr>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID & Waktu</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Pelanggan</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Item Pesanan</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                      <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white divide-y divide-gray-200">
+                    {isLoadingOrders ? (
+                      <tr>
+                        <td colSpan={6} className="px-6 py-10 text-center text-gray-500">
+                          Memuat data pesanan...
+                        </td>
+                      </tr>
+                    ) : orders.length === 0 ? (
+                      <tr>
+                        <td colSpan={6} className="px-6 py-10 text-center text-gray-500">
+                          Belum ada pesanan masuk.
+                        </td>
+                      </tr>
+                    ) : (
+                      orders.map((order) => {
+                        let parsedItems = [];
+                        try { parsedItems = JSON.parse(order.items); } catch(e){}
+                        
+                        return (
+                          <tr key={order.id} className="hover:bg-gray-50">
+                            <td className="px-6 py-4 text-sm text-gray-900">
+                              <div className="font-bold">#{order.id}</div>
+                              <div className="text-gray-500 text-xs">{order.created_at}</div>
+                            </td>
+                            <td className="px-6 py-4 text-sm text-gray-900">
+                              <div className="font-semibold">{order.customer_name}</div>
+                              <div className="text-gray-500">{order.phone}</div>
+                              <div className="text-gray-400 text-xs mt-1 truncate max-w-xs">{order.address}</div>
+                            </td>
+                            <td className="px-6 py-4 text-sm text-gray-500">
+                              <ul className="list-disc list-inside">
+                                {parsedItems.map((it: any, i: number) => (
+                                  <li key={i} className="truncate max-w-xs">{it.name} (x{it.quantity})</li>
+                                ))}
+                              </ul>
+                            </td>
+                            <td className="px-6 py-4 text-sm font-medium text-gray-900">
+                              Rp {order.total_price.toLocaleString('id-ID')}
+                            </td>
+                            <td className="px-6 py-4 text-sm">
+                              <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${order.status === 'confirmed' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}`}>
+                                {order.status === 'confirmed' ? 'Dikonfirmasi' : 'Tertunda'}
+                              </span>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                              {order.status === 'pending' && (
+                                <button 
+                                  onClick={() => confirmOrder(order.id)}
+                                  className="text-white bg-green-500 hover:bg-green-600 px-3 py-1 rounded shadow-sm transition-colors"
+                                >
+                                  Konfirmasi
+                                </button>
+                              )}
+                            </td>
+                          </tr>
+                        );
+                      })
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </>
+        )}
       </main>
 
       {/* Modal Form */}

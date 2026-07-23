@@ -33,9 +33,38 @@ export const CartSidebar: React.FC = () => {
       } catch (e) {
         console.error("Failed to fetch WA number", e);
       }
-      
+      // Save order to backend
+      let orderId = "";
+      try {
+        const orderData = {
+          customer_name: formData.nama,
+          phone: formData.phone,
+          address: formData.alamat,
+          items: JSON.stringify(state.items.map(item => ({
+            name: item.product.name,
+            quantity: item.quantity,
+            price: item.product.price
+          }))),
+          total_price: state.total
+        };
+        const orderRes = await fetch(`${apiUrl}/api/orders`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(orderData)
+        });
+        if (orderRes.ok) {
+          const orderJson = await orderRes.json();
+          orderId = orderJson.id.toString();
+        }
+      } catch (e) {
+        console.error("Failed to save order to DB", e);
+      }
+
       // Build WhatsApp message
       let message = `*HALO PT CIPTA SAMA ABADI* 🐔\n`;
+      if (orderId) {
+        message += `*ORDER ID: #${orderId}*\n\n`;
+      }
       message += `Saya ingin memesan pakan berikut:\n\n`;
       
       state.items.forEach((item, index) => {

@@ -115,6 +115,18 @@ class CheckoutResponse(BaseModel):
     message: str
     resi_number: str
 
+class OrderCreate(BaseModel):
+    customer_name: str
+    phone: str
+    address: str
+    items: str
+    total_price: int
+
+class OrderResponse(OrderCreate):
+    id: int
+    status: str
+    created_at: str
+
 def send_order_email(customer: CustomerData, items: List[CartItem], total: int, resi_number: str):
     """Send order confirmation email to customer"""
     print(f"DEBUG: Starting email send to {customer.email}")
@@ -301,6 +313,47 @@ async def delete_product(product_name: str, authorized: bool = Depends(verify_ad
         raise
     except Exception as e:
         logger.error(f"Error deleting product: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/api/orders", response_model=OrderResponse)
+async def create_order(order: OrderCreate, db: Session = Depends(get_db)):
+    from models import OrderDB
+    from datetime import datetime
+    try:
+        new_order = OrderDB(
+            **order.dict(),
+            created_at=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        )
+        db.add(new_order)
+        db.commit()
+        db.refresh(new_order)
+        return new_order
+    except Exception as e:
+        logger.error(f"Error creating order: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/orders", response_model=List[OrderResponse])
+async def get_orders(authorized: bool = Depends(verify_admin), db: Session = Depends(get_db)):
+    from models import OrderDB
+    try:
+        orders = db.query(OrderDB).order_by(OrderDB.id.desc()).all()
+        return orders
+    except Exception as e:
+        logger.error(f"Error fetching orders: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.put("/api/orders/{order_id}/confirm")
+async def confirm_order(order_id: int, authorized: bool = Depends(verify_admin), db: Session = Depends(get_db)):
+    from models import OrderDB
+    try:
+        order = db.query(OrderDB).filter(OrderDB.id == order_id).first()
+        if not order:
+            raise HTTPException(status_code=404, detail="Order not found")
+        order.status = "confirmed"
+        db.commit()
+        return {"success": True, "message": "Order confirmed"}
+    except Exception as e:
+        logger.error(f"Error confirming order: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/api/recommend")
