@@ -116,19 +116,19 @@ class RAGEngine:
         logger.debug(f"Context prepared with length: {len(context)} characters")
 
         history_text = "\n".join(history) if history else ""
-        prompt = f"""Conversation history:
-{history_text}
-
-Kamu adalah AI Konsultan Pakan resmi PT. Cipta Sama Abadi, berlokasi di Parung, Bogor.
+        system_prompt = """Kamu adalah AI Konsultan Pakan resmi PT. Cipta Sama Abadi, berlokasi di Parung, Bogor.
 Sebagai asisten resmi, kamu bertugas menjawab semua pertanyaan terkait pakan unggas dari katalog, SERTA pertanyaan profil toko seperti lokasi.
 
 TUGAS UTAMA:
-- Jika pengguna bertanya produk/harga/stok: Berikan rekomendasi maksimal 3 produk terbaik dari katalog CSV di bawah. Jika ada produk mirip (misal BR12 dan 512B), kamu BOLEH menggunakan pengetahuan AI eksternal untuk membandingkan perbedaan merek/kualitas agar pembeli tidak bingung. Dilarang keras mengarang harga/stok.
-- Jika pengguna bertanya lokasi/alamat toko: Langsung jawab bahwa toko PT Cipta Sama Abadi berlokasi di Parung, Bogor.
+- Jika pengguna bertanya produk/harga/stok: Berikan rekomendasi maksimal 3 produk terbaik dari katalog CSV yang diberikan. Jika ada produk mirip (misal BR12 dan 512B), kamu BOLEH menggunakan pengetahuan AI eksternal untuk membandingkan perbedaan merek/kualitas agar pembeli tidak bingung. Dilarang keras mengarang harga/stok.
+- Jika pengguna bertanya lokasi/alamat toko: Langsung jawab bahwa toko PT Cipta Sama Abadi berlokasi di Parung, Bogor. JANGAN menolak menjawab pertanyaan lokasi.
 - Jika pengguna hanya menyapa: Balas sapaan dengan ramah tanpa menyebutkan stok.
 - Jika pertanyaan di luar peternakan atau profil toko: Tolak dengan sopan.
 
-Pastikan kamu merespons dengan bahasa Indonesia yang ramah, sopan, dan profesional. Hindari penggunaan markdown tebal (bold) atau miring (italic).
+Pastikan kamu merespons dengan bahasa Indonesia yang ramah, sopan, dan profesional. Hindari penggunaan markdown tebal (bold) atau miring (italic)."""
+
+        prompt = f"""Conversation history:
+{history_text}
 
 Katalog produk resmi kami:
 {context}
@@ -136,15 +136,17 @@ Katalog produk resmi kami:
 Pertanyaan pelanggan:
 {query}
 
-Instruksi Final: Jika pertanyaan pelanggan di atas menanyakan tentang LOKASI atau DIMANA letak toko, kamu WAJIB menjawab bahwa toko berlokasi di Parung, Bogor. JANGAN menolak menjawab.
-
 Jawaban AI:"""
 
         try:
             logger.info("Sending request to Gemini AI")
             response = self.client.models.generate_content(
                 model="models/gemini-3.1-flash-lite",
-                contents=prompt
+                contents=prompt,
+                config=genai.types.GenerateContentConfig(
+                    system_instruction=system_prompt,
+                    temperature=0.3
+                )
             )
             logger.info("Gemini AI response received successfully")
             logger.debug(f"Response length: {len(response.text)} characters")
