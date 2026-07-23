@@ -82,56 +82,69 @@ export const FloatingChatbot: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end">
+    <div id="rag" className="fixed bottom-6 right-6 z-50">
+      {/* Chat Window */}
       {isOpen && (
-        <div className="mb-4 bg-white rounded-lg shadow-lg border border-gray-200 w-[calc(100vw-2rem)] sm:w-[400px] max-w-full h-[80vh] max-h-[600px] flex flex-col">
-          <div className="bg-blue-800 text-white p-3 rounded-t-lg flex justify-between items-center shrink-0">
-            <h4 className="font-semibold">Asisten Virtual PT Cipta Sama Abadi</h4>
-            <button onClick={() => setIsOpen(false)} className="text-white hover:text-gray-200">
-              ✕
-            </button>
+        <div id="ragChatbox" className="absolute bottom-20 right-0 w-[90vw] sm:w-[380px] h-[500px] bg-white rounded-2xl border border-slate-200 shadow-2xl flex flex-col overflow-hidden">
+          {/* Header */}
+          <div className="bg-slate-900 text-white px-4 py-3 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="text-sm font-semibold">FeedMaster AI (RAG Engine)</span>
+            </div>
+            <button onClick={() => setIsOpen(false)} className="text-slate-400 hover:text-white text-lg">&times;</button>
           </div>
-          <div className="flex-grow overflow-y-auto p-3 space-y-2">
+          {/* Message Body */}
+          <div className="flex-1 p-4 overflow-y-auto space-y-3 text-sm bg-slate-50">
             {messages.map((message, index) => (
               <MessageBubble key={index} message={message} />
             ))}
             {isLoading && (
-              <div className="flex justify-start mb-4">
-                <div className="bg-white text-gray-900 border border-gray-200 px-4 py-3 rounded-lg flex space-x-2 items-center shadow-sm">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                  <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                  <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+              <div className="flex gap-2 items-center text-xs text-slate-400 italic">
+                <div className="w-7 h-7 rounded-full bg-slate-200 text-slate-600 text-xs flex items-center justify-center font-bold flex-shrink-0">AI</div>
+                <div className="bg-white px-3 py-2 rounded-xl border border-slate-200 shadow-sm flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce"></span>
+                  <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></span>
+                  <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></span>
+                  <span className="ml-1">Mencari referensi dokumen...</span>
                 </div>
               </div>
             )}
             <div ref={messagesEndRef} />
           </div>
-          <form onSubmit={handleSubmit} className="p-3 border-t border-gray-200">
-            <div className="flex gap-2">
-              <input
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                placeholder="Tanya tentang pakan unggas..."
-                className="flex-1 px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-600"
-                disabled={isLoading}
-              />
-              <button
-                type="submit"
-                disabled={isLoading || !input.trim()}
-                className="px-3 py-2 bg-blue-700 text-white rounded-md hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-sm"
-              >
-                Kirim
-              </button>
-            </div>
+          {/* Input Footer */}
+          <form onSubmit={handleSubmit} className="p-3 bg-white border-t border-slate-200 flex gap-2">
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder="Ketik pertanyaan seputar pakan..."
+              className="flex-1 px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:border-brand-500"
+              disabled={isLoading}
+            />
+            <button
+              type="submit"
+              disabled={isLoading || !input.trim()}
+              className="px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white text-sm font-medium rounded-lg transition-colors disabled:opacity-50"
+            >
+              Kirim
+            </button>
           </form>
         </div>
       )}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="bg-blue-700 hover:bg-blue-800 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg"
+
+      {/* Toggle Button */}
+      <button 
+        onClick={() => setIsOpen(!isOpen)} 
+        className="w-14 h-14 bg-brand-600 hover:bg-brand-700 text-white rounded-full shadow-xl flex items-center justify-center transition-transform hover:scale-105 ml-auto block"
       >
-        {isOpen ? '✕' : <Headphones className="w-6 h-6" />}
+        {isOpen ? (
+          <span className="text-xl font-bold">✕</span>
+        ) : (
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+          </svg>
+        )}
       </button>
     </div>
   );

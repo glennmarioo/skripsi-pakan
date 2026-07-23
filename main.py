@@ -40,6 +40,12 @@ app = FastAPI(
     version="1.0.0"
 )
 
+# Auto-create database tables (including Orders) if they don't exist
+from database import engine
+from models import Base
+Base.metadata.create_all(bind=engine)
+logger.info("Database tables verified/created")
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000", "http://localhost:3001"],

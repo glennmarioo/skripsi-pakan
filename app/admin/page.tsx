@@ -204,13 +204,13 @@ export default function AdminPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-slate-50">
       {/* Admin Navbar */}
-      <nav className="bg-blue-800 text-white shadow-md">
+      <nav className="bg-slate-900 text-white shadow-md sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
-            <h1 className="text-xl font-bold">Admin Panel - PT Cipta Sama Abadi</h1>
-            <Link href="/" className="text-blue-100 hover:text-white transition-colors">
+            <h1 className="text-xl font-bold tracking-tight">PT. Cipta Sama Abadi<span className="text-brand-500">.</span> Admin</h1>
+            <Link href="/" className="text-slate-300 hover:text-white text-sm font-medium transition-colors">
               Kembali ke Toko
             </Link>
           </div>
@@ -218,17 +218,17 @@ export default function AdminPage() {
       </nav>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-6 border-b border-gray-200">
+        <div className="mb-8 border-b border-slate-200">
           <nav className="-mb-px flex space-x-8">
             <button
               onClick={() => setActiveTab('products')}
-              className={`whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-lg ${activeTab === 'products' ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'}`}
+              className={`whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-base transition-colors ${activeTab === 'products' ? 'border-brand-500 text-brand-600' : 'border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300'}`}
             >
               Katalog Produk
             </button>
             <button
               onClick={() => setActiveTab('orders')}
-              className={`whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-lg ${activeTab === 'orders' ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'}`}
+              className={`whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-base transition-colors ${activeTab === 'orders' ? 'border-brand-500 text-brand-600' : 'border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300'}`}
             >
               Pesanan Masuk
             </button>
@@ -237,18 +237,21 @@ export default function AdminPage() {
 
         {activeTab === 'products' ? (
           <>
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-gray-900">Manajemen Produk (Katalog Pakan)</h2>
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+              <div>
+                <h2 className="text-2xl font-bold text-slate-900">Dasbor Manajemen Pakan</h2>
+                <p className="text-sm text-slate-500 mt-1">Panel kontrol data inventaris dan katalog pakan unggas.</p>
+              </div>
               <div className="space-x-4">
                 <button 
                   onClick={() => { localStorage.removeItem('admin_token'); router.push('/admin/login'); }}
-                  className="bg-gray-600 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors shadow-sm font-semibold"
+                  className="bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded-lg hover:bg-slate-50 transition-colors shadow-sm font-medium text-sm"
                 >
                   Logout
                 </button>
                 <button 
                   onClick={openAddModal}
-                  className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors shadow-sm font-semibold"
+                  className="bg-brand-600 text-white px-4 py-2 rounded-lg hover:bg-brand-700 transition-colors shadow-sm font-medium text-sm"
                 >
                   + Tambah Produk
                 </button>
@@ -256,20 +259,20 @@ export default function AdminPage() {
             </div>
 
             {/* Data Table */}
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+            <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
               <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-gray-200">
-                  <thead className="bg-gray-50">
-                    <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama Produk</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Harga</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Protein</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kategori Umur</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stok</th>
-                      <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
+                <table className="w-full text-left border-collapse text-sm">
+                  <thead>
+                    <tr className="bg-slate-50 border-b border-slate-200 text-xs font-semibold text-slate-600 uppercase tracking-wider">
+                      <th className="py-3 px-6">Nama Produk</th>
+                      <th className="py-3 px-6">Harga</th>
+                      <th className="py-3 px-6">Protein</th>
+                      <th className="py-3 px-6">Kategori Umur</th>
+                      <th className="py-3 px-6">Stok</th>
+                      <th className="py-3 px-6 text-right">Aksi</th>
                     </tr>
                   </thead>
-                  <tbody className="bg-white divide-y divide-gray-200">
+                  <tbody className="divide-y divide-slate-200 text-slate-700">
                     {isLoading ? (
                       <tr>
                         <td colSpan={6} className="px-6 py-10 text-center text-gray-500">
@@ -284,8 +287,8 @@ export default function AdminPage() {
                       </tr>
                     ) : (
                       products.map((product, idx) => (
-                        <tr key={idx} className="hover:bg-gray-50">
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                        <tr key={idx} className="hover:bg-slate-50/60 transition-colors">
+                          <td className="py-4 px-6 font-medium text-slate-900">
                             <div className="flex items-center">
                               {product.image_url && (
                                 <img src={product.image_url} alt={product.name} className="w-10 h-10 object-cover rounded mr-3" />
@@ -293,24 +296,24 @@ export default function AdminPage() {
                               {product.name}
                             </div>
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{product.price}</td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{product.protein || 'N/A'}</td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{product.age_category}</td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${product.stock > 10 ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                          <td className="py-4 px-6 font-semibold">{product.price}</td>
+                          <td className="py-4 px-6 text-slate-500">{product.protein || 'N/A'}</td>
+                          <td className="py-4 px-6 text-slate-500">{product.age_category}</td>
+                          <td className="py-4 px-6 text-slate-500">
+                            <span className={`px-2.5 py-1 text-xs font-medium rounded-full ${product.stock > 10 ? 'bg-emerald-50 text-emerald-700' : 'bg-red-50 text-red-700'}`}>
                               {product.stock}
                             </span>
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-3">
+                          <td className="py-4 px-6 text-right space-x-3">
                             <button 
                               onClick={() => openEditModal(product)}
-                              className="text-yellow-600 hover:text-yellow-900"
+                              className="text-slate-500 hover:text-slate-900 font-medium"
                             >
                               Edit
                             </button>
                             <button 
                               onClick={() => handleDelete(product.name)}
-                              className="text-red-600 hover:text-red-900"
+                              className="text-red-500 hover:text-red-700 font-medium"
                             >
                               Hapus
                             </button>
@@ -325,21 +328,21 @@ export default function AdminPage() {
           </>
         ) : (
           <>
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-gray-900">Pesanan Masuk</h2>
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+              <h2 className="text-2xl font-bold text-slate-900">Pesanan Masuk</h2>
               <button 
                 onClick={fetchOrders}
-                className="bg-blue-100 text-blue-700 px-4 py-2 rounded-md hover:bg-blue-200 transition-colors shadow-sm font-semibold"
+                className="bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded-lg hover:bg-slate-50 transition-colors shadow-sm font-medium text-sm"
               >
                 Muat Ulang
               </button>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+            <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
               <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-gray-200">
-                  <thead className="bg-gray-50">
-                    <tr>
+                <table className="w-full text-left border-collapse text-sm">
+                  <thead>
+                    <tr className="bg-slate-50 border-b border-slate-200 text-xs font-semibold text-slate-600 uppercase tracking-wider">
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID & Waktu</th>
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Pelanggan</th>
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Item Pesanan</th>

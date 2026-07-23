@@ -30,18 +30,20 @@ const MiniProductCard: React.FC<MiniProductCardProps> = ({ product }) => {
   };
 
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-3 shadow-sm">
+    <div className="bg-white border border-slate-200 rounded-xl p-3 shadow-sm">
       {product.image_url && (
-        <div className="mb-2 w-full h-32 overflow-hidden rounded bg-gray-100 flex items-center justify-center">
+        <div className="mb-3 w-full h-32 overflow-hidden rounded-lg bg-slate-100 flex items-center justify-center">
           <img src={product.image_url} alt={product.name} className="object-cover w-full h-full" />
         </div>
       )}
-      <h4 className="font-semibold text-gray-900 mb-1">{product.name}</h4>
-      <p className="text-blue-700 font-bold mb-2">{typeof product.price === 'number' ? `Rp ${product.price.toLocaleString('id-ID')}` : product.price}</p>
-      <p className="text-sm text-gray-600 mb-2">Stok: {product.stock}</p>
+      <h4 className="font-bold text-slate-900 mb-1 text-sm">{product.name}</h4>
+      <div className="flex justify-between items-center mb-3">
+        <p className="text-brand-600 font-bold text-sm">{typeof product.price === 'number' ? `Rp ${product.price.toLocaleString('id-ID')}` : product.price}</p>
+        <span className="text-xs text-slate-500 font-medium px-2 py-0.5 bg-slate-50 border border-slate-200 rounded-full">Stok: {product.stock}</span>
+      </div>
       <button
         onClick={handleAddToCart}
-        className="w-full bg-blue-600 text-white font-semibold py-1.5 px-3 rounded-lg text-sm hover:bg-blue-700 shadow-sm transition-all"
+        className="w-full bg-slate-900 text-white font-medium py-2 px-3 rounded-lg text-xs hover:bg-slate-800 shadow-sm transition-colors"
       >
         Tambah ke Keranjang
       </button>
@@ -51,15 +53,20 @@ const MiniProductCard: React.FC<MiniProductCardProps> = ({ product }) => {
 
 export const MessageBubble: React.FC<MessageBubbleProps> = ({ message }) => {
   return (
-    <div className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'} mb-4`}>
+    <div className={`flex gap-2.5 ${message.role === 'user' ? 'flex-row-reverse' : ''} items-end mb-4`}>
+      <div className={`w-7 h-7 rounded-full flex items-center justify-center font-bold text-[10px] flex-shrink-0 shadow-sm ${
+        message.role === 'user' ? 'bg-slate-900 text-white' : 'bg-brand-500 text-white'
+      }`}>
+        {message.role === 'user' ? 'U' : 'AI'}
+      </div>
       <div
-        className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
+        className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-sm ${
           message.role === 'user'
-            ? 'bg-blue-700 text-white'
-            : 'bg-white text-gray-900 border border-gray-200'
+            ? 'bg-slate-900 text-white rounded-br-sm shadow-sm'
+            : 'bg-white text-slate-800 border border-slate-200 rounded-bl-sm shadow-sm'
         }`}
       >
-        <div className={`prose prose-sm max-w-none ${message.role === 'user' ? 'prose-invert text-white' : 'prose-blue'}`}>
+        <div className={`prose prose-sm max-w-none ${message.role === 'user' ? 'prose-invert text-white' : 'prose-slate'}`}>
           <ReactMarkdown>{message.content}</ReactMarkdown>
         </div>
         {message.role === 'assistant' && message.recommended_products && message.recommended_products.length > 0 && (

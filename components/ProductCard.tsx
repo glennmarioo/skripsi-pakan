@@ -1,7 +1,4 @@
-'use client';
-
 import React from 'react';
-import Image from 'next/image';
 import { useCart, Product } from '../context/CartContext';
 import { toast } from 'sonner';
 
@@ -18,36 +15,31 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   };
 
   return (
-    <div className="bg-white/90 backdrop-blur-md border border-gray-100 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 h-full flex flex-col group">
-      <div className="aspect-square bg-gray-50 flex items-center justify-center overflow-hidden">
-        <img
-          src={product.image_url || "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJDMTMuMSAyIDE0IDIuOSAxNCA0VjE2QzE0IDE3LjEgMTMuMSAxOCA4IDMwQzIuOSAxOCAxLjEgMTcgMSAxNlY0QzEgMi45IDIuOSAyIDQgMkMxMC4yIDIgMTIgMkgxMlpNMTIgMTJDMTMuNjUgMTIgMTUgMTMuMzUgMTUgMTVWMTVDMTUgMTYuNjUgMTMuNjUgMTggMTIgMThDMTMuNjUgMTggMTUgMTYuNjUgMTUgMTVWMTVDMTUgMTMuMzUgMTMuNjUgMTIgMTIgMTJaIiBmaWxsPSIjOWNhM2FmIi8+Cjwvc3ZnPgo="}
-          alt={product.name}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-        />
-      </div>
-      <div className="p-4 flex-grow flex flex-col">
-        <h3 className="text-lg font-semibold text-gray-900 mb-2">{product.name}</h3>
-        <div className="flex flex-wrap gap-2 mb-2">
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+    <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full group">
+      <div>
+        <div className="flex justify-between items-start mb-3">
+          <span className="text-xs font-medium text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full border border-brand-100">
             {product.age_category}
           </span>
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-800 border border-blue-100">
-            Protein: {product.protein}
+          <span className={`text-xs font-medium px-2.5 py-1 rounded-full ${product.stock && product.stock < 20 ? 'bg-red-50 text-red-600 border border-red-100' : 'bg-slate-50 text-slate-600 border border-slate-200'}`}>
+            Stok: {product.stock}
           </span>
         </div>
-        <p className="text-sm text-gray-600 mb-2">{product.description}</p>
-        <div className="flex justify-between items-center">
-          <span className="text-xl font-bold text-blue-700">{product.price}</span>
-          <span className={`text-sm font-medium ${product.stock && product.stock < 20 ? 'text-red-600' : 'text-gray-700'}`}>
-            Stok: {product.stock} sak
-          </span>
+        <h3 className="text-lg font-bold text-slate-900 leading-tight mb-2">{product.name}</h3>
+        <span className="inline-block text-xs text-slate-500 font-medium mb-2 border border-slate-200 px-2 py-0.5 rounded-md">Protein: {product.protein}</span>
+        <p className="text-sm text-slate-500 line-clamp-3">{product.description}</p>
+      </div>
+      
+      <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+        <div>
+          <span className="text-xs text-slate-400 block mb-0.5">Harga / Sak</span>
+          <span className="text-base font-bold text-slate-900">{product.price}</span>
         </div>
         <button
           onClick={handleAddToCart}
-          className="w-full mt-auto bg-blue-600 text-white font-bold py-2.5 px-4 rounded-xl shadow-md hover:shadow-lg hover:bg-blue-700 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-medium rounded-lg transition-colors shadow-sm"
         >
-          Tambah ke Keranjang
+          Pesan
         </button>
       </div>
     </div>

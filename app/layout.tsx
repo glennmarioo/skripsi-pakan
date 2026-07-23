@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} bg-slate-50 text-slate-800 antialiased font-sans flex flex-col min-h-screen`}>
         <CartProvider>
           {children}
           <Toaster position="bottom-right" duration={3000} />
