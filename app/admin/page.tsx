@@ -204,15 +204,30 @@ export default function AdminPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50 flex flex-col">
       {/* Admin Navbar */}
       <nav className="bg-slate-900 text-white shadow-md sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
-            <h1 className="text-xl font-bold tracking-tight">PT. Cipta Sama Abadi<span className="text-brand-500">.</span> Admin</h1>
-            <Link href="/" className="text-slate-300 hover:text-white text-sm font-medium transition-colors">
-              Kembali ke Toko
-            </Link>
+            <div className="flex items-center gap-4">
+              <h1 className="text-xl font-bold tracking-tight">Cipta Sama Abadi<span className="text-brand-500">.</span></h1>
+              <span className="hidden sm:inline-block px-2.5 py-1 bg-slate-800 text-slate-300 text-xs rounded-full border border-slate-700">Admin Portal</span>
+            </div>
+            
+            <div className="flex items-center gap-6">
+              <Link href="/" className="text-slate-300 hover:text-white text-sm font-medium transition-colors hidden sm:block">
+                Lihat Website
+              </Link>
+              <div className="flex items-center gap-3 pl-6 border-l border-slate-700">
+                <div className="w-8 h-8 rounded-full bg-brand-600 flex items-center justify-center font-bold text-sm shadow-sm">
+                  AD
+                </div>
+                <div className="hidden md:block text-left">
+                  <p className="text-sm font-semibold leading-tight">Admin Utama</p>
+                  <p className="text-xs text-slate-400">admin@ciptasama.com</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </nav>

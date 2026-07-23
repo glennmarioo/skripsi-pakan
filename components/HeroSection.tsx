@@ -4,13 +4,13 @@ export const HeroSection: React.FC = () => {
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center">
       <span className="inline-flex items-center px-3 py-1 text-xs font-medium bg-brand-50 text-brand-700 rounded-full mb-4 border border-brand-100 shadow-sm">
-        Implementasi AI & RAG untuk Rekomendasi Pakan Unggas
+        Sistem Informasi Manajemen Pakan Unggas
       </span>
       <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight max-w-3xl mx-auto leading-tight">
-        Sistem Rekomendasi Pakan Berbasis Data Real-Time
+        PT. Cipta Sama Abadi
       </h1>
       <p className="mt-4 text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
-        Platform e-commerce dan manajemen pakan terintegrasi dengan Retrieval-Augmented Generation untuk akurasi dan efisiensi peternakan modern.
+        Platform e-commerce dan manajemen stok pakan yang mempermudah peternak dalam pemesanan dan pencarian informasi pakan unggas.
       </p>
       <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4 items-center">
         <a href="#katalog" onClick={(e) => {
