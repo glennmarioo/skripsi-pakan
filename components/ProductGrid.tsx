@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { ProductCard } from './ProductCard';
 import { Product } from '../context/CartContext';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { Skeleton } from './ui/Skeleton';
 
 interface ProductGridProps {
@@ -84,7 +84,7 @@ export const ProductGrid: React.FC<ProductGridProps> = ({ searchQuery }) => {
       )
     : products;
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -94,7 +94,7 @@ export const ProductGrid: React.FC<ProductGridProps> = ({ searchQuery }) => {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } }
   };
