@@ -34,7 +34,7 @@ export const OrderManager: React.FC<OrderManagerProps> = ({ orders, isLoading, o
                 <th className="py-4 px-6">Item Pesanan</th>
                 <th className="py-4 px-6">Total Bayar</th>
                 <th className="py-4 px-6">Status</th>
-                <th className="py-4 px-6 text-right">Aksi</th>
+                <th className="py-4 px-6 text-center">Aksi</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-slate-700 dark:text-slate-300 transition-colors">
@@ -85,33 +85,35 @@ export const OrderManager: React.FC<OrderManagerProps> = ({ orders, isLoading, o
                           {order.status === 'confirmed' ? 'Dikonfirmasi' : order.status === 'cancelled' ? 'Dibatalkan' : 'Tertunda'}
                         </Badge>
                       </td>
-                      <td className="py-4 px-6 text-right">
-                        {order.status === 'pending' && (
-                          <Button 
-                            onClick={() => {
-                              if (window.confirm("Apakah Anda yakin ingin mengonfirmasi pesanan ini? Stok akan otomatis dikurangi.")) {
-                                onConfirm(order.id);
-                              }
-                            }}
-                            className="bg-emerald-500 hover:bg-emerald-600 text-white"
-                            size="sm"
-                          >
-                            Konfirmasi
-                          </Button>
-                        )}
-                        {order.status === 'confirmed' && (
-                          <Button 
-                            onClick={() => {
-                              if (window.confirm("Apakah Anda yakin ingin membatalkan pesanan ini? Stok yang sudah terpotong akan dikembalikan.")) {
-                                onCancel(order.id);
-                              }
-                            }}
-                            className="bg-error-500 hover:bg-error-600 text-white mt-2 sm:mt-0 sm:ml-2"
-                            size="sm"
-                          >
-                            Batalkan
-                          </Button>
-                        )}
+                      <td className="py-4 px-6 text-center">
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-2">
+                          {order.status === 'pending' && (
+                            <Button 
+                              onClick={() => {
+                                if (window.confirm("Apakah Anda yakin ingin mengonfirmasi pesanan ini? Stok akan otomatis dikurangi.")) {
+                                  onConfirm(order.id);
+                                }
+                              }}
+                              className="bg-emerald-500 hover:bg-emerald-600 text-white"
+                              size="sm"
+                            >
+                              Konfirmasi
+                            </Button>
+                          )}
+                          {order.status === 'confirmed' && (
+                            <Button 
+                              onClick={() => {
+                                if (window.confirm("Apakah Anda yakin ingin membatalkan pesanan ini? Stok yang sudah terpotong akan dikembalikan.")) {
+                                  onCancel(order.id);
+                                }
+                              }}
+                              className="bg-error-500 hover:bg-error-600 text-white"
+                              size="sm"
+                            >
+                              Batalkan
+                            </Button>
+                          )}
+                        </div>
                       </td>
                     </tr>
                   );
