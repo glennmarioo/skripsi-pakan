@@ -23,7 +23,7 @@ export const Navbar: React.FC<NavbarProps> = ({ searchQuery, onSearchChange }) =
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className="text-lg md:text-xl font-bold tracking-tight text-slate-900">
-            Cipta Sama Abadi<span className="text-brand-500">.</span>
+            Cipta Sama Abadi.
           </span>
         </div>
         
@@ -37,11 +37,6 @@ export const Navbar: React.FC<NavbarProps> = ({ searchQuery, onSearchChange }) =
         </div>
 
         <div className="flex items-center gap-3">
-          <Link href="/admin/login" className="hidden md:block">
-            <Button variant="secondary" size="sm">
-              Panel Sistem
-            </Button>
-          </Link>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
