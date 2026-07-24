@@ -46,10 +46,8 @@ export const OrderManager: React.FC<OrderManagerProps> = ({ orders, isLoading, o
                 </tr>
               ) : orders.length === 0 ? (
                 <tr>
-                  <td colSpan={6} className="px-6 py-12 text-center text-slate-500 dark:text-slate-400">
-                    <div className="bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-xl max-w-sm mx-auto p-6 transition-colors">
-                      <p className="font-medium text-slate-700 dark:text-slate-300 mb-1">Belum ada pesanan masuk.</p>
-                    </div>
+                  <td colSpan={6} className="px-6 py-12 text-center text-slate-500 dark:text-slate-400 font-medium">
+                    Belum ada pesanan masuk.
                   </td>
                 </tr>
               ) : (
