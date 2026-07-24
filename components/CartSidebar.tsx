@@ -6,13 +6,13 @@ import { X, Minus, Plus } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { CheckoutForm, CheckoutFormData } from './CheckoutForm';
 import { toast } from 'sonner';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Button } from './ui/Button';
 
 export const CartSidebar: React.FC = () => {
   const { state, dispatch, clearCart } = useCart();
   const [showCheckoutForm, setShowCheckoutForm] = useState(false);
   const [isCheckingOut, setIsCheckingOut] = useState(false);
-
-  if (!state.isCartOpen) return null;
 
   const handleCheckoutClick = () => {
     setShowCheckoutForm(true);
@@ -21,7 +21,6 @@ export const CartSidebar: React.FC = () => {
   const handleCheckoutSubmit = async (formData: CheckoutFormData) => {
     try {
       setIsCheckingOut(true);
-      // Fetch WA Number from DB
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
       let waNumber = "6287819281389"; // fallback
       try {
@@ -33,7 +32,7 @@ export const CartSidebar: React.FC = () => {
       } catch (e) {
         console.error("Failed to fetch WA number", e);
       }
-      // Save order to backend
+      
       let orderId = "";
       try {
         const orderData = {
@@ -60,8 +59,7 @@ export const CartSidebar: React.FC = () => {
         console.error("Failed to save order to DB", e);
       }
 
-      // Build WhatsApp message
-      let message = `*HALO PT CIPTA SAMA ABADI* 🐔\n`;
+      let message = `*HALO CIPTASAMA ABADI* 🐔\n`;
       if (orderId) {
         message += `*ORDER ID: #${orderId}*\n\n`;
       }
@@ -81,10 +79,8 @@ export const CartSidebar: React.FC = () => {
       const encodedMessage = encodeURIComponent(message);
       const waUrl = `https://wa.me/${waNumber}?text=${encodedMessage}`;
       
-      // Open WhatsApp in new tab
       window.open(waUrl, '_blank');
       
-      // Clear cart and show success
       clearCart();
       dispatch({ type: 'CLOSE_CART' });
       setShowCheckoutForm(false);
@@ -94,7 +90,7 @@ export const CartSidebar: React.FC = () => {
         {
           duration: 5000,
           style: {
-            background: '#22c55e',
+            background: '#10b981', // success color
             color: 'white',
             border: 'none',
           },
@@ -112,85 +108,127 @@ export const CartSidebar: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
-      <div className="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-lg">
-        <div className="flex justify-between items-center p-4 border-b">
-          <h2 className="text-lg font-semibold">Keranjang Belanja</h2>
-          <button
-            onClick={() => dispatch({ type: 'CLOSE_CART' })}
-            className="p-2 hover:bg-gray-100 rounded-full"
-          >
-            <X className="w-5 h-5" />
-          </button>
-        </div>
-        <div className="flex-1 overflow-y-auto p-4 space-y-4">
-          {state.items.length === 0 ? (
-            <p className="text-gray-500 text-center">Keranjang kosong</p>
-          ) : (
-            state.items.map((item) => (
-              <div key={item.product.name} className="flex items-center space-x-4 border-b pb-4">
-                <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center">
-                  <Image
-                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJDMTMuMSAyIDE0IDIuOSAxNCA0VjE2QzE0IDE3LjEgMTMuMSAxOCA4IDMwQzIuOSAxOCAxLjEgMTcgMSAxNlY0QzEgMi45IDIuOSAyIDQgMkMxMC4yIDIgMTIgMkgxMlpNMTIgMTJDMTMuNjUgMTIgMTUgMTMuMzUgMTUgMTVWMTVDMTUgMTYuNjUgMTMuNjUgMTggMTIgMThDMTMuNjUgMTggMTUgMTYuNjUgMTUgMTVWMTVDMTUgMTMuMzUgMTMuNjUgMTIgMTIgMTJaIiBmaWxsPSIjOWNhM2FmIi8+Cjwvc3ZnPgo="
-                    alt={item.product.name}
-                    width={64}
-                    height={64}
-                    className="w-full h-full object-cover rounded-lg"
-                  />
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-medium">{item.product.name}</h3>
-                  <p className="text-sm text-gray-600">{item.product.price}</p>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <button
-                    onClick={() => dispatch({ type: 'UPDATE_QUANTITY', payload: { name: item.product.name, quantity: item.quantity - 1 } })}
-                    className="p-1 hover:bg-gray-100 rounded"
-                  >
-                    <Minus className="w-4 h-4" />
-                  </button>
-                  <span className="w-8 text-center">{item.quantity}</span>
-                  <button
-                    onClick={() => dispatch({ type: 'UPDATE_QUANTITY', payload: { name: item.product.name, quantity: item.quantity + 1 } })}
-                    className="p-1 hover:bg-gray-100 rounded"
-                  >
-                    <Plus className="w-4 h-4" />
-                  </button>
-                </div>
+    <>
+      <AnimatePresence>
+        {state.isCartOpen && (
+          <div className="fixed inset-0 z-50 flex justify-end">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm"
+              onClick={() => dispatch({ type: 'CLOSE_CART' })}
+            />
+            
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="relative h-full w-full max-w-md bg-white shadow-floating flex flex-col pointer-events-auto"
+            >
+              <div className="flex justify-between items-center p-6 border-b border-slate-100">
+                <h2 className="text-xl font-bold text-slate-900">Keranjang</h2>
                 <button
-                  onClick={() => dispatch({ type: 'REMOVE_ITEM', payload: item.product.name })}
-                  className="p-1 hover:bg-red-100 rounded text-red-600"
+                  onClick={() => dispatch({ type: 'CLOSE_CART' })}
+                  className="p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-full transition-colors"
                 >
-                  <X className="w-4 h-4" />
+                  <X className="w-5 h-5" />
                 </button>
               </div>
-            ))
-          )}
-        </div>
-        {state.items.length > 0 && (
-          <div className="border-t p-4 space-y-4">
-            <div className="flex justify-between text-lg font-semibold">
-              <span>Subtotal:</span>
-              <span>Rp {state.total.toLocaleString('id-ID')}</span>
-            </div>
-            <button
-              onClick={handleCheckoutClick}
-              className="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-xl shadow-md hover:shadow-lg hover:bg-blue-700 transition-all"
-            >
-              Checkout
-            </button>
+              
+              <div className="flex-1 overflow-y-auto p-6 space-y-6">
+                {state.items.length === 0 ? (
+                  <div className="h-full flex flex-col items-center justify-center text-slate-400">
+                    <p className="font-medium">Keranjang masih kosong</p>
+                  </div>
+                ) : (
+                  <motion.div 
+                    initial="hidden"
+                    animate="visible"
+                    variants={{
+                      hidden: { opacity: 0 },
+                      visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+                    }}
+                    className="space-y-6"
+                  >
+                    {state.items.map((item) => (
+                      <motion.div 
+                        key={item.product.name} 
+                        variants={{
+                          hidden: { opacity: 0, y: 10 },
+                          visible: { opacity: 1, y: 0 }
+                        }}
+                        className="flex items-center space-x-4 border-b border-slate-100 pb-6 last:border-0"
+                      >
+                        <div className="w-20 h-20 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center overflow-hidden">
+                          {item.product.image_url ? (
+                            <img src={item.product.image_url} alt={item.product.name} className="w-full h-full object-cover" />
+                          ) : (
+                            <div className="text-xs text-slate-400">Pakan</div>
+                          )}
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="font-bold text-slate-900 leading-tight">{item.product.name}</h3>
+                          <p className="text-sm font-semibold text-brand-600 mt-1">{item.product.price}</p>
+                        </div>
+                        <div className="flex flex-col items-end gap-3">
+                          <button
+                            onClick={() => dispatch({ type: 'REMOVE_ITEM', payload: item.product.name })}
+                            className="text-error-500 hover:text-error-700 text-xs font-medium"
+                          >
+                            Hapus
+                          </button>
+                          <div className="flex items-center space-x-2 bg-slate-50 border border-slate-200 rounded-lg p-1">
+                            <button
+                              onClick={() => dispatch({ type: 'UPDATE_QUANTITY', payload: { name: item.product.name, quantity: item.quantity - 1 } })}
+                              className="p-1 hover:bg-slate-200 rounded text-slate-600"
+                            >
+                              <Minus className="w-3.5 h-3.5" />
+                            </button>
+                            <span className="w-6 text-center text-sm font-semibold">{item.quantity}</span>
+                            <button
+                              onClick={() => dispatch({ type: 'UPDATE_QUANTITY', payload: { name: item.product.name, quantity: item.quantity + 1 } })}
+                              className="p-1 hover:bg-slate-200 rounded text-slate-600"
+                            >
+                              <Plus className="w-3.5 h-3.5" />
+                            </button>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                )}
+              </div>
+              
+              {state.items.length > 0 && (
+                <div className="border-t border-slate-200 p-6 bg-slate-50 space-y-4">
+                  <div className="flex justify-between items-center text-lg">
+                    <span className="font-medium text-slate-600">Total</span>
+                    <span className="font-bold text-slate-900">Rp {state.total.toLocaleString('id-ID')}</span>
+                  </div>
+                  <Button
+                    onClick={handleCheckoutClick}
+                    className="w-full"
+                    size="lg"
+                  >
+                    Lanjut Checkout
+                  </Button>
+                </div>
+              )}
+            </motion.div>
           </div>
         )}
+      </AnimatePresence>
 
-        <CheckoutForm
-          isOpen={showCheckoutForm}
-          onClose={handleCloseCheckoutForm}
-          onSubmit={handleCheckoutSubmit}
-          isProcessing={isCheckingOut}
-          cartItems={state.items}
-          total={state.total}
-        />
-      </div>
-    </div>
+      <CheckoutForm
+        isOpen={showCheckoutForm}
+        onClose={handleCloseCheckoutForm}
+        onSubmit={handleCheckoutSubmit}
+        isProcessing={isCheckingOut}
+        cartItems={state.items}
+        total={state.total}
+      />
+    </>
   );
 };

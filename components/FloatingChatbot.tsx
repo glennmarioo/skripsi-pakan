@@ -5,7 +5,8 @@ import { Message, ChatResponse, RecommendedProduct } from '../types';
 import { MessageBubble } from './MessageBubble';
 import { useCart } from '../context/CartContext';
 import { toast } from 'sonner';
-import { Headphones } from 'lucide-react';
+import { Headphones, X, MessageSquare, Sparkles } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export const FloatingChatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -83,69 +84,103 @@ export const FloatingChatbot: React.FC = () => {
 
   return (
     <div id="rag" className="fixed bottom-6 right-6 z-50">
-      {/* Chat Window */}
-      {isOpen && (
-        <div id="ragChatbox" className="absolute bottom-20 right-0 w-[90vw] sm:w-[380px] h-[500px] bg-white rounded-2xl border border-slate-200 shadow-2xl flex flex-col overflow-hidden">
-          {/* Header */}
-          <div className="bg-slate-900 text-white px-4 py-3 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span className="text-sm font-semibold">FeedMaster AI (RAG Engine)</span>
-            </div>
-            <button onClick={() => setIsOpen(false)} className="text-slate-400 hover:text-white text-lg">&times;</button>
-          </div>
-          {/* Message Body */}
-          <div className="flex-1 p-4 overflow-y-auto space-y-3 text-sm bg-slate-50">
-            {messages.map((message, index) => (
-              <MessageBubble key={index} message={message} />
-            ))}
-            {isLoading && (
-              <div className="flex gap-2 items-center text-xs text-slate-400 italic">
-                <div className="w-7 h-7 rounded-full bg-slate-200 text-slate-600 text-xs flex items-center justify-center font-bold flex-shrink-0">AI</div>
-                <div className="bg-white px-3 py-2 rounded-xl border border-slate-200 shadow-sm flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce"></span>
-                  <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></span>
-                  <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></span>
-                  <span className="ml-1">Mencari referensi dokumen...</span>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+            id="ragChatbox" 
+            className="absolute bottom-20 right-0 w-[90vw] sm:w-[380px] h-[550px] bg-white rounded-2xl border border-slate-200 shadow-floating flex flex-col overflow-hidden origin-bottom-right"
+          >
+            {/* Header */}
+            <div className="bg-slate-900 text-white px-5 py-4 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="relative">
+                  <div className="w-8 h-8 rounded-full bg-brand-500 flex items-center justify-center">
+                    <Sparkles className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="absolute -bottom-1 -right-1 w-3 h-3 rounded-full bg-emerald-500 border-2 border-slate-900"></span>
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold leading-tight">Asisten AI</h3>
+                  <p className="text-xs text-slate-400">RAG Engine</p>
                 </div>
               </div>
-            )}
-            <div ref={messagesEndRef} />
-          </div>
-          {/* Input Footer */}
-          <form onSubmit={handleSubmit} className="p-3 bg-white border-t border-slate-200 flex gap-2">
-            <input
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="Ketik pertanyaan seputar pakan..."
-              className="flex-1 px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:border-brand-500"
-              disabled={isLoading}
-            />
-            <button
-              type="submit"
-              disabled={isLoading || !input.trim()}
-              className="px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white text-sm font-medium rounded-lg transition-colors disabled:opacity-50"
-            >
-              Kirim
-            </button>
-          </form>
-        </div>
-      )}
+              <button 
+                onClick={() => setIsOpen(false)} 
+                className="text-slate-400 hover:text-white p-2 rounded-full hover:bg-slate-800 transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Message Body */}
+            <div className="flex-1 p-5 overflow-y-auto space-y-4 text-sm bg-slate-50/50">
+              <AnimatePresence initial={false}>
+                {messages.map((message, index) => (
+                  <MessageBubble key={index} message={message} />
+                ))}
+                {isLoading && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    className="flex gap-3 items-end"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-brand-500 text-white flex items-center justify-center flex-shrink-0 shadow-sm">
+                      <Sparkles className="w-4 h-4" />
+                    </div>
+                    <div className="bg-white px-4 py-3 rounded-2xl rounded-bl-sm border border-slate-200 shadow-sm flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 bg-brand-500 rounded-full animate-bounce"></span>
+                      <span className="w-1.5 h-1.5 bg-brand-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></span>
+                      <span className="w-1.5 h-1.5 bg-brand-500 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></span>
+                      <span className="ml-1 text-xs font-medium text-slate-500">Berpikir...</span>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+              <div ref={messagesEndRef} className="h-2" />
+            </div>
+
+            {/* Input Footer */}
+            <form onSubmit={handleSubmit} className="p-4 bg-white border-t border-slate-100">
+              <div className="relative flex items-center">
+                <input
+                  type="text"
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  placeholder="Ketik pertanyaan..."
+                  className="w-full pl-4 pr-12 py-3 text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent bg-slate-50 hover:bg-white transition-all text-slate-700"
+                  disabled={isLoading}
+                />
+                <button
+                  type="submit"
+                  disabled={isLoading || !input.trim()}
+                  className="absolute right-2 p-2 bg-brand-600 hover:bg-brand-700 text-white rounded-lg transition-colors disabled:opacity-50 disabled:hover:bg-brand-600"
+                >
+                  <MessageSquare className="w-4 h-4" />
+                </button>
+              </div>
+            </form>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Toggle Button */}
-      <button 
+      <motion.button
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)} 
-        className="w-14 h-14 bg-brand-600 hover:bg-brand-700 text-white rounded-full shadow-xl flex items-center justify-center transition-transform hover:scale-105 ml-auto block"
+        className="w-14 h-14 bg-slate-900 hover:bg-slate-800 text-white rounded-full shadow-floating flex items-center justify-center ml-auto transition-colors"
       >
         {isOpen ? (
-          <span className="text-xl font-bold">✕</span>
+          <X className="w-6 h-6" />
         ) : (
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
-          </svg>
+          <MessageSquare className="w-6 h-6" />
         )}
-      </button>
+      </motion.button>
     </div>
   );
 };

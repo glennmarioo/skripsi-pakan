@@ -1,7 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import { X } from 'lucide-react';
+import { Modal } from './ui/Modal';
+import { Input } from './ui/Input';
+import { Button } from './ui/Button';
 
 interface CheckoutFormProps {
   isOpen: boolean;
@@ -59,99 +61,74 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({
     }
   };
 
-  if (!isOpen) return null;
-
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
-        <div className="flex justify-between items-center p-6 border-b">
-          <h2 className="text-xl font-bold text-gray-900">Form Pengiriman</h2>
-          <button
-            onClick={onClose}
-            className="p-2 hover:bg-gray-100 rounded-full"
-          >
-            <X className="w-5 h-5" />
-          </button>
+    <Modal isOpen={isOpen} onClose={onClose} title="Form Pengiriman" maxWidth="md">
+      <form onSubmit={handleSubmit} className="space-y-5">
+        <Input
+          label="Nama Lengkap *"
+          placeholder="Masukkan nama lengkap"
+          value={formData.nama}
+          onChange={(e) => handleChange('nama', e.target.value)}
+          error={errors.nama}
+        />
+
+        <Input
+          label="Nomor HP *"
+          type="tel"
+          placeholder="08123456789"
+          value={formData.phone}
+          onChange={(e) => handleChange('phone', e.target.value)}
+          error={errors.phone}
+        />
+
+        <div className="w-full flex flex-col gap-1.5">
+          <label className="text-sm font-semibold text-slate-700">
+            Alamat Lengkap Pengiriman *
+          </label>
+          <textarea
+            value={formData.alamat}
+            onChange={(e) => handleChange('alamat', e.target.value)}
+            rows={3}
+            className={`w-full px-3 py-2 text-sm border rounded-xl bg-slate-50 transition-all focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent placeholder:text-slate-400 text-slate-900 ${
+              errors.alamat 
+                ? 'border-error-500 focus:ring-error-500 bg-error-50/50' 
+                : 'border-slate-200 hover:bg-white'
+            }`}
+            placeholder="Jl. Contoh No. 123, Kota, Kode Pos"
+          />
+          {errors.alamat && (
+            <span className="text-xs font-medium text-error-600 animate-fade-in-up">
+              {errors.alamat}
+            </span>
+          )}
         </div>
 
-        <form onSubmit={handleSubmit} className="p-6 space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Nama Lengkap *
-            </label>
-            <input
-              type="text"
-              value={formData.nama}
-              onChange={(e) => handleChange('nama', e.target.value)}
-              className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                errors.nama ? 'border-red-500' : 'border-gray-300'
-              }`}
-              placeholder="Masukkan nama lengkap"
-            />
-            {errors.nama && <p className="text-red-500 text-sm mt-1">{errors.nama}</p>}
+        {/* Order Summary */}
+        <div className="border-t border-slate-100 pt-5 mt-2">
+          <h3 className="font-semibold text-slate-900 mb-3 text-sm">Ringkasan Pesanan</h3>
+          <div className="space-y-2 text-sm text-slate-600">
+            {cartItems.map((item, index) => (
+              <div key={index} className="flex justify-between">
+                <span>{item.product.name} <span className="text-slate-400">x{item.quantity}</span></span>
+                <span className="font-medium">Rp {(parseFloat(item.product.price.replace('Rp ', '').replace('.', '')) * item.quantity).toLocaleString('id-ID')}</span>
+              </div>
+            ))}
           </div>
-
-
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Nomor HP *
-            </label>
-            <input
-              type="tel"
-              value={formData.phone}
-              onChange={(e) => handleChange('phone', e.target.value)}
-              className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                errors.phone ? 'border-red-500' : 'border-gray-300'
-              }`}
-              placeholder="08123456789"
-            />
-            {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
+          <div className="border-t border-slate-100 mt-3 pt-3 flex justify-between font-bold text-slate-900">
+            <span>Total Bayar:</span>
+            <span>Rp {total.toLocaleString('id-ID')}</span>
           </div>
+        </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Alamat Lengkap Pengiriman *
-            </label>
-            <textarea
-              value={formData.alamat}
-              onChange={(e) => handleChange('alamat', e.target.value)}
-              rows={3}
-              className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                errors.alamat ? 'border-red-500' : 'border-gray-300'
-              }`}
-              placeholder="Jl. Contoh No. 123, Kota, Kode Pos"
-            />
-            {errors.alamat && <p className="text-red-500 text-sm mt-1">{errors.alamat}</p>}
-          </div>
-
-          {/* Order Summary */}
-          <div className="border-t pt-4">
-            <h3 className="font-semibold text-gray-900 mb-2">Ringkasan Pesanan</h3>
-            <div className="space-y-1 text-sm text-gray-600">
-              {cartItems.map((item, index) => (
-                <div key={index} className="flex justify-between">
-                  <span>{item.product.name} x{item.quantity}</span>
-                  <span>Rp {(parseFloat(item.product.price.replace('Rp ', '').replace('.', '')) * item.quantity).toLocaleString('id-ID')}</span>
-                </div>
-              ))}
-            </div>
-            <div className="border-t mt-2 pt-2 flex justify-between font-semibold text-gray-900">
-              <span>Total:</span>
-              <span>Rp {total.toLocaleString('id-ID')}</span>
-            </div>
-          </div>
-
-          <button
-            type="submit"
-            disabled={isProcessing}
-            className="w-full bg-[#25D366] text-white font-bold py-3 px-4 rounded-xl shadow-md hover:shadow-lg hover:bg-[#128C7E] disabled:bg-green-300 disabled:cursor-not-allowed transition-all flex items-center justify-center space-x-2"
-          >
-            <span>{isProcessing ? 'Memproses...' : 'Pesan via WhatsApp'}</span>
-            {!isProcessing && <span className="text-xl">💬</span>}
-          </button>
-        </form>
-      </div>
-    </div>
+        <Button
+          type="submit"
+          isLoading={isProcessing}
+          className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white mt-4"
+          size="lg"
+        >
+          {isProcessing ? 'Memproses...' : 'Pesan via WhatsApp 💬'}
+        </Button>
+      </form>
+    </Modal>
   );
 };

@@ -1,28 +1,68 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { Badge } from './ui/Badge';
+import { Button } from './ui/Button';
 
 export const HeroSection: React.FC = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } }
+  };
+
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center">
-      <span className="inline-flex items-center px-3 py-1 text-xs font-medium bg-brand-50 text-brand-700 rounded-full mb-4 border border-brand-100 shadow-sm">
-        Sistem Informasi Manajemen Pakan Unggas
-      </span>
-      <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight max-w-3xl mx-auto leading-tight">
+    <motion.section 
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center flex flex-col items-center"
+    >
+      <motion.div variants={itemVariants}>
+        <Badge variant="brand" className="mb-6">
+          Sistem Informasi Manajemen Pakan Unggas
+        </Badge>
+      </motion.div>
+      
+      <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight max-w-3xl mx-auto leading-tight">
         PT. Cipta Sama Abadi
-      </h1>
-      <p className="mt-4 text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
+      </motion.h1>
+      
+      <motion.p variants={itemVariants} className="mt-6 text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
         Platform e-commerce dan manajemen stok pakan yang mempermudah peternak dalam pemesanan dan pencarian informasi pakan unggas.
-      </p>
-      <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4 items-center">
-        <a href="#katalog" onClick={(e) => {
-            e.preventDefault();
+      </motion.p>
+      
+      <motion.div variants={itemVariants} className="mt-10 flex flex-col sm:flex-row justify-center gap-4 items-center w-full sm:w-auto">
+        <Button 
+          variant="primary" 
+          size="lg"
+          className="w-full sm:w-auto"
+          onClick={() => {
             document.getElementById('katalog')?.scrollIntoView({ behavior: 'smooth' });
-        }} className="px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-medium rounded-xl transition-all shadow-sm w-full sm:w-auto">
+          }}
+        >
           Lihat Katalog Pakan
-        </a>
-        <a href="/admin/login" className="px-6 py-3 bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 font-medium rounded-xl transition-all w-full sm:w-auto">
+        </Button>
+        <Button 
+          variant="outline" 
+          size="lg"
+          className="w-full sm:w-auto"
+          onClick={() => {
+            window.location.href = '/admin/login';
+          }}
+        >
           Buka Dasbor Admin
-        </a>
-      </div>
-    </section>
+        </Button>
+      </motion.div>
+    </motion.section>
   );
 };
