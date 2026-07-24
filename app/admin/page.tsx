@@ -127,6 +127,25 @@ export default function AdminPage() {
     }
   };
 
+  const cancelOrder = async (id: number) => {
+    const token = localStorage.getItem('admin_token');
+    try {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+      const res = await fetch(`${apiUrl}/api/orders/${id}/cancel`, {
+        method: 'PUT',
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      if (res.ok) {
+        toast.success("Pesanan dibatalkan dan stok dikembalikan!");
+        fetchOrders();
+      } else {
+        toast.error("Gagal membatalkan pesanan");
+      }
+    } catch (error) {
+      toast.error("Terjadi kesalahan");
+    }
+  };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -241,6 +260,7 @@ export default function AdminPage() {
                 isLoading={isLoadingOrders}
                 onRefresh={fetchOrders}
                 onConfirm={confirmOrder}
+                onCancel={cancelOrder}
               />
             )}
 

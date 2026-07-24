@@ -8,9 +8,10 @@ interface OrderManagerProps {
   isLoading: boolean;
   onRefresh: () => void;
   onConfirm: (id: number) => void;
+  onCancel: (id: number) => void;
 }
 
-export const OrderManager: React.FC<OrderManagerProps> = ({ orders, isLoading, onRefresh, onConfirm }) => {
+export const OrderManager: React.FC<OrderManagerProps> = ({ orders, isLoading, onRefresh, onConfirm, onCancel }) => {
   return (
     <div>
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
@@ -80,18 +81,35 @@ export const OrderManager: React.FC<OrderManagerProps> = ({ orders, isLoading, o
                         Rp {order.total_price.toLocaleString('id-ID')}
                       </td>
                       <td className="py-4 px-6">
-                        <Badge variant={order.status === 'confirmed' ? 'success' : 'warning'}>
-                          {order.status === 'confirmed' ? 'Dikonfirmasi' : 'Tertunda'}
+                        <Badge variant={order.status === 'confirmed' ? 'success' : order.status === 'cancelled' ? 'error' : 'warning'}>
+                          {order.status === 'confirmed' ? 'Dikonfirmasi' : order.status === 'cancelled' ? 'Dibatalkan' : 'Tertunda'}
                         </Badge>
                       </td>
                       <td className="py-4 px-6 text-right">
                         {order.status === 'pending' && (
                           <Button 
-                            onClick={() => onConfirm(order.id)}
+                            onClick={() => {
+                              if (window.confirm("Apakah Anda yakin ingin mengonfirmasi pesanan ini? Stok akan otomatis dikurangi.")) {
+                                onConfirm(order.id);
+                              }
+                            }}
                             className="bg-emerald-500 hover:bg-emerald-600 text-white"
                             size="sm"
                           >
                             Konfirmasi
+                          </Button>
+                        )}
+                        {order.status === 'confirmed' && (
+                          <Button 
+                            onClick={() => {
+                              if (window.confirm("Apakah Anda yakin ingin membatalkan pesanan ini? Stok yang sudah terpotong akan dikembalikan.")) {
+                                onCancel(order.id);
+                              }
+                            }}
+                            className="bg-error-500 hover:bg-error-600 text-white mt-2 sm:mt-0 sm:ml-2"
+                            size="sm"
+                          >
+                            Batalkan
                           </Button>
                         )}
                       </td>

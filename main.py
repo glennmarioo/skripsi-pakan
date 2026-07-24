@@ -404,6 +404,45 @@ async def confirm_order(order_id: int, authorized: bool = Depends(verify_admin),
         logger.error(f"Error confirming order: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.put("/api/orders/{order_id}/cancel")
+async def cancel_order(order_id: int, authorized: bool = Depends(verify_admin), db: Session = Depends(get_db)):
+    from models import OrderDB, ProductDB
+    import json
+    try:
+        order = db.query(OrderDB).filter(OrderDB.id == order_id).first()
+        if not order:
+            raise HTTPException(status_code=404, detail="Order not found")
+        
+        if order.status == "cancelled":
+            return {"success": True, "message": "Pesanan sudah dibatalkan sebelumnya"}
+            
+        # Jika pesanan sebelumnya confirmed, kembalikan stok
+        if order.status == "confirmed":
+            items = []
+            try:
+                items = json.loads(order.items)
+            except Exception:
+                pass
+                
+            for item in items:
+                product_name = item.get("name")
+                quantity = item.get("quantity", 0)
+                if product_name and quantity > 0:
+                    product_row = db.query(ProductDB).filter(ProductDB.name == product_name).first()
+                    if product_row:
+                        product_row.stock += quantity
+                        
+        order.status = "cancelled"
+        db.commit()
+        
+        # Update RAG Engine
+        rag_engine.reload_catalog()
+        
+        return {"success": True, "message": "Order cancelled and stock restored"}
+    except Exception as e:
+        logger.error(f"Error cancelling order: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
+
 @app.post("/api/recommend")
 async def recommend(request: QueryRequest):
     logger.info("=== RECOMMENDATION REQUEST RECEIVED ===")
