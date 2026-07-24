@@ -15,9 +15,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, onLog
   ];
 
   return (
-    <div className="w-64 bg-slate-900 h-screen fixed left-0 top-0 text-slate-300 flex flex-col z-20">
+    <div className="w-64 bg-slate-900 h-screen fixed left-0 top-0 text-slate-300 flex flex-col z-20 border-r border-slate-800">
       <div className="p-6 h-16 flex items-center border-b border-slate-800">
-        <h1 className="text-xl font-bold tracking-tight text-white">Cipta Sama<span className="text-brand-500">.</span></h1>
+        <h1 className="text-xl font-bold tracking-tight text-white">Cipta Sama Abadi.</h1>
       </div>
       <div className="flex-1 overflow-y-auto py-6 px-4 space-y-1">
         {menuItems.map((item) => (

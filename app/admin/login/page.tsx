@@ -46,11 +46,11 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden transition-colors">
       {/* Background Decor */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-brand-500/5 blur-[120px]" />
-        <div className="absolute -bottom-[20%] -right-[10%] w-[50%] h-[50%] rounded-full bg-brand-500/5 blur-[120px]" />
+        <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-brand-500/5 dark:bg-brand-500/10 blur-[120px]" />
+        <div className="absolute -bottom-[20%] -right-[10%] w-[50%] h-[50%] rounded-full bg-brand-500/5 dark:bg-brand-500/10 blur-[120px]" />
       </div>
 
       <div className="sm:mx-auto sm:w-full sm:max-w-md relative z-10">
@@ -59,16 +59,16 @@ export default function AdminLogin() {
             <Lock className="w-8 h-8 text-white -rotate-3" />
           </div>
         </div>
-        <h2 className="mt-2 text-center text-3xl font-bold tracking-tight text-slate-900">
+        <h2 className="mt-2 text-center text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
           Admin Portal
         </h2>
-        <p className="mt-2 text-center text-sm text-slate-500">
+        <p className="mt-2 text-center text-sm text-slate-500 dark:text-slate-400">
           Masuk ke sistem manajemen PT Cipta Sama Abadi
         </p>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md relative z-10">
-        <Card className="px-8 py-10 shadow-xl shadow-slate-200/50">
+        <Card className="px-8 py-10 shadow-xl shadow-slate-200/50 dark:shadow-none bg-white dark:bg-slate-900 border-none dark:border dark:border-slate-800 transition-colors">
           <form className="space-y-6" onSubmit={handleLogin}>
             <Input
               label="Username"
@@ -100,7 +100,7 @@ export default function AdminLogin() {
           </form>
         </Card>
         
-        <p className="text-center text-xs text-slate-400 mt-8">
+        <p className="text-center text-xs text-slate-400 dark:text-slate-500 mt-8">
           &copy; {new Date().getFullYear()} PT Cipta Sama Abadi. All rights reserved.
         </p>
       </div>

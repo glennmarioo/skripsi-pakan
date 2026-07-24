@@ -55,17 +55,17 @@ export const SettingsManager: React.FC = () => {
   return (
     <div className="max-w-3xl">
       <div className="mb-6">
-        <h2 className="text-2xl font-bold text-slate-900">Pengaturan Sistem</h2>
-        <p className="text-sm text-slate-500 mt-1">Konfigurasi variabel global untuk operasional aplikasi.</p>
+        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Pengaturan Sistem</h2>
+        <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Konfigurasi variabel global untuk operasional aplikasi.</p>
       </div>
 
-      <Card className="p-6">
-        <h3 className="text-lg font-bold text-slate-900 mb-4 border-b border-slate-100 pb-3">Integrasi WhatsApp</h3>
+      <Card className="p-6 bg-white dark:bg-slate-900 border-none dark:border dark:border-slate-800 transition-colors">
+        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4 border-b border-slate-100 dark:border-slate-800 pb-3">Integrasi WhatsApp</h3>
         
         {isLoading ? (
           <div className="animate-pulse space-y-4">
-            <div className="h-4 bg-slate-200 rounded w-1/4"></div>
-            <div className="h-10 bg-slate-200 rounded w-full max-w-md"></div>
+            <div className="h-4 bg-slate-200 dark:bg-slate-700 rounded w-1/4"></div>
+            <div className="h-10 bg-slate-200 dark:bg-slate-700 rounded w-full max-w-md"></div>
           </div>
         ) : (
           <div className="space-y-4 max-w-md">
@@ -75,7 +75,7 @@ export const SettingsManager: React.FC = () => {
               onChange={(e) => setWaNumber(e.target.value)}
               placeholder="6281234567890"
             />
-            <p className="text-xs text-slate-500 font-medium">Gunakan kode negara (contoh: 62) tanpa tanda plus (+).</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Gunakan kode negara (contoh: 62) tanpa tanda plus (+).</p>
             <Button 
               onClick={handleSave} 
               isLoading={isSaving}
