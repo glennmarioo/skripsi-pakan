@@ -11,7 +11,7 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-transparent transition-colors duration-300">
       <Navbar searchQuery={searchQuery} onSearchChange={setSearchQuery} />
       <HeroSection />
       <ProductGrid searchQuery={searchQuery} />

@@ -82,39 +82,39 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({
         />
 
         <div className="w-full flex flex-col gap-1.5">
-          <label className="text-sm font-semibold text-slate-700">
+          <label className="text-sm font-semibold text-slate-700 dark:text-slate-300">
             Alamat Lengkap Pengiriman *
           </label>
           <textarea
             value={formData.alamat}
             onChange={(e) => handleChange('alamat', e.target.value)}
             rows={3}
-            className={`w-full px-3 py-2 text-sm border rounded-xl bg-slate-50 transition-all focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent placeholder:text-slate-400 text-slate-900 ${
+            className={`w-full px-3 py-2 text-sm border rounded-xl bg-slate-50 dark:bg-slate-900/50 transition-all focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent placeholder:text-slate-400 dark:placeholder:text-slate-500 text-slate-900 dark:text-slate-100 ${
               errors.alamat 
-                ? 'border-error-500 focus:ring-error-500 bg-error-50/50' 
-                : 'border-slate-200 hover:bg-white'
+                ? 'border-error-500 focus:ring-error-500 bg-error-50/50 dark:bg-error-500/10' 
+                : 'border-slate-200 dark:border-slate-800 hover:bg-white dark:hover:bg-slate-900'
             }`}
             placeholder="Jl. Contoh No. 123, Kota, Kode Pos"
           />
           {errors.alamat && (
-            <span className="text-xs font-medium text-error-600 animate-fade-in-up">
+            <span className="text-xs font-medium text-error-600 dark:text-error-400 animate-fade-in-up">
               {errors.alamat}
             </span>
           )}
         </div>
 
         {/* Order Summary */}
-        <div className="border-t border-slate-100 pt-5 mt-2">
-          <h3 className="font-semibold text-slate-900 mb-3 text-sm">Ringkasan Pesanan</h3>
-          <div className="space-y-2 text-sm text-slate-600">
+        <div className="border-t border-slate-100 dark:border-slate-800 pt-5 mt-2">
+          <h3 className="font-semibold text-slate-900 dark:text-white mb-3 text-sm">Ringkasan Pesanan</h3>
+          <div className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
             {cartItems.map((item, index) => (
               <div key={index} className="flex justify-between">
-                <span>{item.product.name} <span className="text-slate-400">x{item.quantity}</span></span>
-                <span className="font-medium">Rp {(parseFloat(item.product.price.replace('Rp ', '').replace('.', '')) * item.quantity).toLocaleString('id-ID')}</span>
+                <span>{item.product.name} <span className="text-slate-400 dark:text-slate-500">x{item.quantity}</span></span>
+                <span className="font-medium text-slate-900 dark:text-slate-300">Rp {(parseFloat(item.product.price.replace('Rp ', '').replace('.', '')) * item.quantity).toLocaleString('id-ID')}</span>
               </div>
             ))}
           </div>
-          <div className="border-t border-slate-100 mt-3 pt-3 flex justify-between font-bold text-slate-900">
+          <div className="border-t border-slate-100 dark:border-slate-800 mt-3 pt-3 flex justify-between font-bold text-slate-900 dark:text-white">
             <span>Total Bayar:</span>
             <span>Rp {total.toLocaleString('id-ID')}</span>
           </div>
