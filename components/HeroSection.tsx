@@ -40,29 +40,6 @@ export const HeroSection: React.FC = () => {
       <motion.p variants={itemVariants} className="mt-6 text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
         Platform e-commerce dan manajemen stok pakan yang mempermudah peternak dalam pemesanan dan pencarian informasi pakan unggas.
       </motion.p>
-      
-      <motion.div variants={itemVariants} className="mt-10 flex flex-col sm:flex-row justify-center gap-4 items-center w-full sm:w-auto">
-        <Button 
-          variant="primary" 
-          size="lg"
-          className="w-full sm:w-auto"
-          onClick={() => {
-            document.getElementById('katalog')?.scrollIntoView({ behavior: 'smooth' });
-          }}
-        >
-          Lihat Katalog Pakan
-        </Button>
-        <Button 
-          variant="outline" 
-          size="lg"
-          className="w-full sm:w-auto"
-          onClick={() => {
-            window.location.href = '/admin/login';
-          }}
-        >
-          Buka Dasbor Admin
-        </Button>
-      </motion.div>
     </motion.section>
   );
 };
