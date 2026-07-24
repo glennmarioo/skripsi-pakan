@@ -41,8 +41,8 @@ export const AdminNavbar: React.FC = () => {
               AD
             </div>
             <div className="hidden md:block text-left">
-              <p className="text-sm font-bold text-slate-900 dark:text-white leading-tight">Admin Utama</p>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">admin@ciptasama.com</p>
+              <p className="text-sm font-bold text-slate-900 dark:text-white leading-tight">Admin Portal</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">PT Cipta Sama Abadi</p>
             </div>
           </div>
         </div>

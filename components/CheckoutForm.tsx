@@ -120,6 +120,13 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({
           </div>
         </div>
 
+        <div className="bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/20 rounded-xl p-4 mt-4">
+          <p className="text-xs text-amber-800 dark:text-amber-400 font-medium">
+            <span className="font-bold block mb-1">Penting:</span>
+            Harap lakukan pembayaran dan konfirmasi via WhatsApp maksimal <span className="font-bold text-amber-900 dark:text-amber-300">24 jam</span> setelah pesanan dibuat. Pesanan yang melewati batas waktu akan otomatis dibatalkan.
+          </p>
+        </div>
+
         <Button
           type="submit"
           isLoading={isProcessing}

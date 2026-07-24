@@ -341,7 +341,22 @@ async def create_order(order: OrderCreate, db: Session = Depends(get_db)):
 @app.get("/api/orders", response_model=List[OrderResponse])
 async def get_orders(authorized: bool = Depends(verify_admin), db: Session = Depends(get_db)):
     from models import OrderDB
+    from datetime import datetime, timedelta
     try:
+        # Hapus pesanan pending yang berumur lebih dari 24 jam
+        threshold = datetime.now() - timedelta(hours=24)
+        threshold_str = threshold.strftime("%Y-%m-%d %H:%M:%S")
+        
+        expired_orders = db.query(OrderDB).filter(
+            OrderDB.status == "pending",
+            OrderDB.created_at < threshold_str
+        ).all()
+        
+        if expired_orders:
+            for eo in expired_orders:
+                db.delete(eo)
+            db.commit()
+
         orders = db.query(OrderDB).order_by(OrderDB.id.desc()).all()
         return orders
     except Exception as e:
@@ -350,14 +365,41 @@ async def get_orders(authorized: bool = Depends(verify_admin), db: Session = Dep
 
 @app.put("/api/orders/{order_id}/confirm")
 async def confirm_order(order_id: int, authorized: bool = Depends(verify_admin), db: Session = Depends(get_db)):
-    from models import OrderDB
+    from models import OrderDB, ProductDB
+    import json
     try:
         order = db.query(OrderDB).filter(OrderDB.id == order_id).first()
         if not order:
             raise HTTPException(status_code=404, detail="Order not found")
+        
+        if order.status == "confirmed":
+            return {"success": True, "message": "Pesanan sudah dikonfirmasi sebelumnya"}
+            
+        # Parse items dan kurangi stok produk
+        items = []
+        try:
+            items = json.loads(order.items)
+        except Exception:
+            pass
+            
+        for item in items:
+            product_name = item.get("name")
+            quantity = item.get("quantity", 0)
+            if product_name and quantity > 0:
+                product_row = db.query(ProductDB).filter(ProductDB.name == product_name).first()
+                if product_row:
+                    if product_row.stock >= quantity:
+                        product_row.stock -= quantity
+                    else:
+                        product_row.stock = 0 # Kurangi sampai 0 jika over-order
+                        
         order.status = "confirmed"
         db.commit()
-        return {"success": True, "message": "Order confirmed"}
+        
+        # Update RAG Engine dengan data stok baru
+        rag_engine.reload_catalog()
+        
+        return {"success": True, "message": "Order confirmed and stock updated"}
     except Exception as e:
         logger.error(f"Error confirming order: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail=str(e))
