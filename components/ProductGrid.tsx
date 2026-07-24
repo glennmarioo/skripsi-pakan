@@ -101,7 +101,7 @@ export const ProductGrid: React.FC<ProductGridProps> = ({ searchQuery }) => {
 
   if (loading) {
     return (
-      <section className="py-12 border-t border-slate-200 bg-white">
+      <section className="py-12 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <Skeleton variant="text" className="h-8 w-64 mb-2" />
@@ -109,7 +109,7 @@ export const ProductGrid: React.FC<ProductGridProps> = ({ searchQuery }) => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-              <div key={i} className="bg-white rounded-xl border border-slate-200 p-6 shadow-subtle h-[320px] flex flex-col justify-between">
+              <div key={i} className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 shadow-subtle h-[320px] flex flex-col justify-between transition-colors">
                 <div>
                   <div className="flex justify-between mb-4">
                     <Skeleton variant="text" className="h-6 w-24 rounded-full" />
@@ -119,7 +119,7 @@ export const ProductGrid: React.FC<ProductGridProps> = ({ searchQuery }) => {
                   <Skeleton variant="text" className="h-6 w-1/4 mb-3" />
                   <Skeleton variant="text" className="h-16 w-full" />
                 </div>
-                <div className="mt-6 pt-4 border-t border-slate-100 flex justify-between">
+                <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-between">
                   <Skeleton variant="text" className="h-10 w-24" />
                   <Skeleton variant="text" className="h-10 w-20 rounded-lg" />
                 </div>
@@ -132,20 +132,20 @@ export const ProductGrid: React.FC<ProductGridProps> = ({ searchQuery }) => {
   }
 
   return (
-    <section id="katalog" className="py-12 border-t border-slate-200 bg-white min-h-screen">
+    <section id="katalog" className="py-12 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 min-h-screen transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-slate-900">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white transition-colors">
             {searchQuery.trim()
               ? `Hasil Pencarian: "${searchQuery}" (${filteredProducts.length})`
               : 'Etalase Pakan Unggas'
             }
           </h2>
-          <p className="text-sm text-slate-500 mt-1">Berdasarkan pembaruan data inventaris terbaru.</p>
+          <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 transition-colors">Berdasarkan pembaruan data inventaris terbaru.</p>
         </div>
         
         {error && (
-          <div className="mb-8 p-4 bg-error-50 border border-error-200 text-error-700 rounded-xl">
+          <div className="mb-8 p-4 bg-error-50 dark:bg-error-500/10 border border-error-200 dark:border-error-500/20 text-error-700 dark:text-error-400 rounded-xl transition-colors">
             <div className="text-sm font-medium mb-1">Error: {error}</div>
             <div className="text-xs opacity-80">Pastikan backend server sedang berjalan</div>
           </div>
@@ -165,14 +165,14 @@ export const ProductGrid: React.FC<ProductGridProps> = ({ searchQuery }) => {
             ))}
           </motion.div>
         ) : searchQuery.trim() ? (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-12 border border-slate-200 rounded-xl bg-slate-50">
-            <div className="text-slate-600 font-medium mb-1">Tidak ada produk ditemukan</div>
-            <div className="text-slate-400 text-sm">Coba kata kunci lain atau periksa ejaan</div>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-12 border border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50 dark:bg-slate-900 transition-colors">
+            <div className="text-slate-600 dark:text-slate-400 font-medium mb-1">Tidak ada produk ditemukan</div>
+            <div className="text-slate-400 dark:text-slate-500 text-sm">Coba kata kunci lain atau periksa ejaan</div>
           </motion.div>
         ) : (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-12 border border-slate-200 rounded-xl bg-slate-50">
-            <div className="text-slate-600 font-medium mb-1">Belum ada produk tersedia</div>
-            <div className="text-slate-400 text-sm">Produk akan dimuat dari server</div>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-12 border border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50 dark:bg-slate-900 transition-colors">
+            <div className="text-slate-600 dark:text-slate-400 font-medium mb-1">Belum ada produk tersedia</div>
+            <div className="text-slate-400 dark:text-slate-500 text-sm">Produk akan dimuat dari server</div>
           </motion.div>
         )}
       </div>

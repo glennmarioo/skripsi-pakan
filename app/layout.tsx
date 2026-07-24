@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { CartProvider } from '../context/CartContext'
+import { ThemeProvider } from '../components/ThemeProvider'
 import { Toaster } from 'sonner'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -17,12 +18,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} bg-slate-50 text-slate-800 antialiased font-sans flex flex-col min-h-screen`}>
-        <CartProvider>
-          {children}
-          <Toaster position="bottom-right" duration={3000} />
-        </CartProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.className} bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 antialiased font-sans flex flex-col min-h-screen transition-colors duration-300`}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <CartProvider>
+            {children}
+            <Toaster position="bottom-right" duration={3000} />
+          </CartProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

@@ -92,10 +92,10 @@ export const FloatingChatbot: React.FC = () => {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
             id="ragChatbox" 
-            className="absolute bottom-20 right-0 w-[90vw] sm:w-[380px] h-[550px] bg-white rounded-2xl border border-slate-200 shadow-floating flex flex-col overflow-hidden origin-bottom-right"
+            className="absolute bottom-20 right-0 w-[90vw] sm:w-[380px] h-[550px] bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-floating flex flex-col overflow-hidden origin-bottom-right transition-colors"
           >
             {/* Header */}
-            <div className="bg-slate-900 text-white px-5 py-4 flex items-center justify-between">
+            <div className="bg-slate-900 dark:bg-slate-950 text-white px-5 py-4 flex items-center justify-between border-b border-slate-800">
               <div className="flex items-center gap-3">
                 <div className="relative">
                   <div className="w-8 h-8 rounded-full bg-brand-500 flex items-center justify-center">
@@ -117,7 +117,7 @@ export const FloatingChatbot: React.FC = () => {
             </div>
 
             {/* Message Body */}
-            <div className="flex-1 p-5 overflow-y-auto space-y-4 text-sm bg-slate-50/50">
+            <div className="flex-1 p-5 overflow-y-auto space-y-4 text-sm bg-slate-50/50 dark:bg-slate-900/50 transition-colors">
               <AnimatePresence initial={false}>
                 {messages.map((message, index) => (
                   <MessageBubble key={index} message={message} />
@@ -132,11 +132,11 @@ export const FloatingChatbot: React.FC = () => {
                     <div className="w-8 h-8 rounded-full bg-brand-500 text-white flex items-center justify-center flex-shrink-0 shadow-sm">
                       <Sparkles className="w-4 h-4" />
                     </div>
-                    <div className="bg-white px-4 py-3 rounded-2xl rounded-bl-sm border border-slate-200 shadow-sm flex items-center gap-1.5">
+                    <div className="bg-white dark:bg-slate-800 px-4 py-3 rounded-2xl rounded-bl-sm border border-slate-200 dark:border-slate-700 shadow-sm flex items-center gap-1.5 transition-colors">
                       <span className="w-1.5 h-1.5 bg-brand-500 rounded-full animate-bounce"></span>
                       <span className="w-1.5 h-1.5 bg-brand-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></span>
                       <span className="w-1.5 h-1.5 bg-brand-500 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></span>
-                      <span className="ml-1 text-xs font-medium text-slate-500">Berpikir...</span>
+                      <span className="ml-1 text-xs font-medium text-slate-500 dark:text-slate-400">Berpikir...</span>
                     </div>
                   </motion.div>
                 )}
@@ -145,14 +145,14 @@ export const FloatingChatbot: React.FC = () => {
             </div>
 
             {/* Input Footer */}
-            <form onSubmit={handleSubmit} className="p-4 bg-white border-t border-slate-100">
+            <form onSubmit={handleSubmit} className="p-4 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 transition-colors">
               <div className="relative flex items-center">
                 <input
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Ketik pertanyaan..."
-                  className="w-full pl-4 pr-12 py-3 text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent bg-slate-50 hover:bg-white transition-all text-slate-700"
+                  className="w-full pl-4 pr-12 py-3 text-sm border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent bg-slate-50 dark:bg-slate-800 hover:bg-white dark:hover:bg-slate-900 transition-all text-slate-700 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500"
                   disabled={isLoading}
                 />
                 <button
@@ -173,7 +173,7 @@ export const FloatingChatbot: React.FC = () => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)} 
-        className="w-14 h-14 bg-slate-900 hover:bg-slate-800 text-white rounded-full shadow-floating flex items-center justify-center ml-auto transition-colors"
+        className="w-14 h-14 bg-slate-900 hover:bg-slate-800 text-white rounded-full shadow-floating flex items-center justify-center ml-auto transition-colors focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2 dark:focus:ring-offset-slate-950"
       >
         {isOpen ? (
           <X className="w-6 h-6" />

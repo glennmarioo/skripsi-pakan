@@ -25,7 +25,7 @@ export const HeroSection: React.FC = () => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center flex flex-col items-center"
+      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center flex flex-col items-center transition-colors"
     >
       <motion.div variants={itemVariants}>
         <Badge variant="brand" className="mb-6">
@@ -33,11 +33,11 @@ export const HeroSection: React.FC = () => {
         </Badge>
       </motion.div>
       
-      <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight max-w-3xl mx-auto leading-tight">
+      <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight max-w-3xl mx-auto leading-tight transition-colors">
         PT. Cipta Sama Abadi
       </motion.h1>
       
-      <motion.p variants={itemVariants} className="mt-6 text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
+      <motion.p variants={itemVariants} className="mt-6 text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto transition-colors">
         Platform e-commerce dan manajemen stok pakan yang mempermudah peternak dalam pemesanan dan pencarian informasi pakan unggas.
       </motion.p>
     </motion.section>

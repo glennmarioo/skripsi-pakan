@@ -14,9 +14,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     
     const variants = {
       primary: "bg-brand-600 text-white hover:bg-brand-700 shadow-subtle focus:ring-brand-500",
-      secondary: "bg-slate-900 text-white hover:bg-slate-800 shadow-subtle focus:ring-slate-900",
-      outline: "border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 focus:ring-slate-500",
-      ghost: "bg-transparent text-slate-700 hover:bg-slate-100 focus:ring-slate-500",
+      secondary: "bg-slate-900 dark:bg-slate-800 text-white hover:bg-slate-800 dark:hover:bg-slate-700 shadow-subtle focus:ring-slate-900 dark:focus:ring-slate-700",
+      outline: "border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 focus:ring-slate-500",
+      ghost: "bg-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:ring-slate-500",
       danger: "bg-error-600 text-white hover:bg-error-700 shadow-subtle focus:ring-error-500",
     };
 

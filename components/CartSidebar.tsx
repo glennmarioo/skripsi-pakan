@@ -116,7 +116,7 @@ export const CartSidebar: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm"
+              className="absolute inset-0 bg-slate-900/40 dark:bg-slate-900/60 backdrop-blur-sm"
               onClick={() => dispatch({ type: 'CLOSE_CART' })}
             />
             
@@ -125,13 +125,13 @@ export const CartSidebar: React.FC = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="relative h-full w-full max-w-md bg-white shadow-floating flex flex-col pointer-events-auto"
+              className="relative h-full w-full max-w-md bg-white dark:bg-slate-950 shadow-floating flex flex-col pointer-events-auto"
             >
-              <div className="flex justify-between items-center p-6 border-b border-slate-100">
-                <h2 className="text-xl font-bold text-slate-900">Keranjang</h2>
+              <div className="flex justify-between items-center p-6 border-b border-slate-100 dark:border-slate-800">
+                <h2 className="text-xl font-bold text-slate-900 dark:text-white">Keranjang</h2>
                 <button
                   onClick={() => dispatch({ type: 'CLOSE_CART' })}
-                  className="p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-full transition-colors"
+                  className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -139,7 +139,7 @@ export const CartSidebar: React.FC = () => {
               
               <div className="flex-1 overflow-y-auto p-6 space-y-6">
                 {state.items.length === 0 ? (
-                  <div className="h-full flex flex-col items-center justify-center text-slate-400">
+                  <div className="h-full flex flex-col items-center justify-center text-slate-400 dark:text-slate-500">
                     <p className="font-medium">Keranjang masih kosong</p>
                   </div>
                 ) : (
@@ -159,37 +159,37 @@ export const CartSidebar: React.FC = () => {
                           hidden: { opacity: 0, y: 10 },
                           visible: { opacity: 1, y: 0 }
                         }}
-                        className="flex items-center space-x-4 border-b border-slate-100 pb-6 last:border-0"
+                        className="flex items-center space-x-4 border-b border-slate-100 dark:border-slate-800 pb-6 last:border-0"
                       >
-                        <div className="w-20 h-20 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center overflow-hidden">
+                        <div className="w-20 h-20 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl flex items-center justify-center overflow-hidden">
                           {item.product.image_url ? (
                             <img src={item.product.image_url} alt={item.product.name} className="w-full h-full object-cover" />
                           ) : (
-                            <div className="text-xs text-slate-400">Pakan</div>
+                            <div className="text-xs text-slate-400 dark:text-slate-500">Pakan</div>
                           )}
                         </div>
                         <div className="flex-1">
-                          <h3 className="font-bold text-slate-900 leading-tight">{item.product.name}</h3>
-                          <p className="text-sm font-semibold text-brand-600 mt-1">{item.product.price}</p>
+                          <h3 className="font-bold text-slate-900 dark:text-white leading-tight">{item.product.name}</h3>
+                          <p className="text-sm font-semibold text-brand-600 dark:text-brand-400 mt-1">{item.product.price}</p>
                         </div>
                         <div className="flex flex-col items-end gap-3">
                           <button
                             onClick={() => dispatch({ type: 'REMOVE_ITEM', payload: item.product.name })}
-                            className="text-error-500 hover:text-error-700 text-xs font-medium"
+                            className="text-error-500 hover:text-error-600 dark:hover:text-error-400 text-xs font-medium"
                           >
                             Hapus
                           </button>
-                          <div className="flex items-center space-x-2 bg-slate-50 border border-slate-200 rounded-lg p-1">
+                          <div className="flex items-center space-x-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-1">
                             <button
                               onClick={() => dispatch({ type: 'UPDATE_QUANTITY', payload: { name: item.product.name, quantity: item.quantity - 1 } })}
-                              className="p-1 hover:bg-slate-200 rounded text-slate-600"
+                              className="p-1 hover:bg-slate-200 dark:hover:bg-slate-800 rounded text-slate-600 dark:text-slate-400"
                             >
                               <Minus className="w-3.5 h-3.5" />
                             </button>
-                            <span className="w-6 text-center text-sm font-semibold">{item.quantity}</span>
+                            <span className="w-6 text-center text-sm font-semibold dark:text-white">{item.quantity}</span>
                             <button
                               onClick={() => dispatch({ type: 'UPDATE_QUANTITY', payload: { name: item.product.name, quantity: item.quantity + 1 } })}
-                              className="p-1 hover:bg-slate-200 rounded text-slate-600"
+                              className="p-1 hover:bg-slate-200 dark:hover:bg-slate-800 rounded text-slate-600 dark:text-slate-400"
                             >
                               <Plus className="w-3.5 h-3.5" />
                             </button>
@@ -202,10 +202,10 @@ export const CartSidebar: React.FC = () => {
               </div>
               
               {state.items.length > 0 && (
-                <div className="border-t border-slate-200 p-6 bg-slate-50 space-y-4">
+                <div className="border-t border-slate-200 dark:border-slate-800 p-6 bg-slate-50 dark:bg-slate-900/50 space-y-4">
                   <div className="flex justify-between items-center text-lg">
-                    <span className="font-medium text-slate-600">Total</span>
-                    <span className="font-bold text-slate-900">Rp {state.total.toLocaleString('id-ID')}</span>
+                    <span className="font-medium text-slate-600 dark:text-slate-400">Total</span>
+                    <span className="font-bold text-slate-900 dark:text-white">Rp {state.total.toLocaleString('id-ID')}</span>
                   </div>
                   <Button
                     onClick={handleCheckoutClick}
