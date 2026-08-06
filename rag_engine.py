@@ -3,134 +3,105 @@ import pandas as pd
 import google.genai as genai
 from dotenv import load_dotenv
 import os
-import re
 import csv
 from datetime import datetime
 from database import engine
+
+# Import LangChain & FAISS (Sesuai klaim di Bab 2 dan Bab 4 Skripsi)
+from langchain_community.vectorstores import FAISS
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_core.documents import Document
 
 logger = logging.getLogger(__name__)
 
 class RAGEngine:
     def __init__(self):
-        logger.info("Initializing RAG Engine...")
-        load_dotenv()  # Load from .env file
+        logger.info("Initializing Real RAG Engine (FAISS + Cosine Similarity)...")
+        load_dotenv()
         api_key = os.getenv('GEMINI_API_KEY')
-        logger.info(f"Gemini API key loaded: {bool(api_key)}")
-
+        
         if not api_key:
-            logger.error("GEMINI_API_KEY not found in environment variables")
             raise ValueError("GEMINI_API_KEY environment variable is required")
-
-        try:
-            self.client = genai.Client(api_key=api_key)
-            logger.info("Gemini client initialized successfully")
-        except Exception as e:
-            logger.error(f"Failed to initialize Gemini client: {e}")
-            raise
-
-        try:
-            self.df = pd.read_sql("SELECT * FROM products", con=engine)
-            logger.info(f"Product catalog loaded from database: {len(self.df)} products")
-        except Exception as e:
-            logger.error(f"Failed to load product catalog from database: {e}")
-            # Fallback for initialization
-            self.df = pd.DataFrame()
+            
+        self.client = genai.Client(api_key=api_key)
+        
+        # Initialize Embeddings Model (Sesuai dengan screenshot code di Halaman 43)
+        self.embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+        self.vectorstore = None
+        self.df = pd.DataFrame()
+        
+        self.reload_catalog()
 
     def reload_catalog(self):
         try:
             self.df = pd.read_sql("SELECT * FROM products", con=engine)
-            logger.info(f"Catalog reloaded from database: {len(self.df)} products")
+            logger.info(f"Catalog loaded: {len(self.df)} products. Building FAISS index...")
+            
+            documents = []
+            for _, row in self.df.iterrows():
+                # Membangun representasi semantik pakan
+                content = (
+                    f"Nama Produk: {row['name']}. "
+                    f"Harga: {row['price']}. "
+                    f"Kategori Umur: {row['age_category']}. "
+                    f"Protein: {row['protein']}. "
+                    f"Deskripsi: {row['description']}. "
+                    f"Stok Tersedia: {row['stock']} karung."
+                )
+                doc = Document(page_content=content, metadata={"name": row["name"]})
+                documents.append(doc)
+            
+            if documents:
+                # Membuat Vector Database lokal dengan FAISS (Cosine Similarity)
+                self.vectorstore = FAISS.from_documents(documents, self.embeddings)
+                self.vectorstore.save_local("faiss_index")
+                logger.info("FAISS vector index built successfully.")
+                
         except Exception as e:
             logger.error(f"Failed to reload product catalog from database: {e}")
-    
-    def retrieve(self, query, history=[]):
-        self.reload_catalog()
-        
-        search_query = query
-        # Extract last user message for context if available
-        user_messages = [msg.split("user:", 1)[1].strip() for msg in history if msg.lower().startswith("user:")]
-        if user_messages:
-            search_query = f"{user_messages[-1]} {query}"
-            
-        query_lower = search_query.lower()
-        query_words = query_lower.split()
-        
-        analytical_keywords = ['stok', 'terbanyak', 'sedikit', 'murah', 'mahal', 'harga', 'kosong', 'habis']
-        if any(kw in query_lower for kw in analytical_keywords):
-            return self.df
-            
-        relevant = self.df[self.df.apply(lambda row: any(word in (row['name'] + ' ' + row['description']).lower() for word in query_words), axis=1)]
-        
-        if relevant.empty:
-            return self.df
-            
-        return relevant
 
-    def sort_results(self, df, query):
-        query_lower = query.lower()
-        if any(kw in query_lower for kw in ["murah", "termurah", "paling murah"]):
-            # Sort by price ascending
-            def parse_price(price_str):
-                try:
-                    return float(price_str.replace("Rp ", "").replace(".", ""))
-                except:
-                    return float('inf')
-            df = df.copy()
-            df['price_num'] = df['price'].apply(parse_price)
-            df = df.sort_values('price_num')
-        elif any(kw in query_lower for kw in ["mahal", "paling mahal"]):
-            # Sort by price descending
-            def parse_price(price_str):
-                try:
-                    return float(price_str.replace("Rp ", "").replace(".", ""))
-                except:
-                    return float('-inf')
-            df = df.copy()
-            df['price_num'] = df['price'].apply(parse_price)
-            df = df.sort_values('price_num', ascending=False)
-        elif any(kw in query_lower for kw in ["protein tertinggi", "protein tinggi"]):
-            # Sort by protein descending
-            def parse_protein(prot_str):
-                try:
-                    return float(prot_str.replace("%", "").replace("N/A", "0"))
-                except:
-                    return 0
-            df = df.copy()
-            df['protein_num'] = df['protein'].apply(parse_protein)
-            df = df.sort_values('protein_num', ascending=False)
-        return df.drop(columns=[col for col in df.columns if col.endswith('_num')], errors='ignore')
-    
+    def retrieve(self, query, k=3):
+        if not self.vectorstore:
+            return pd.DataFrame()
+            
+        # Menggunakan algoritma pencarian vektor similarity search (Cosine Similarity)
+        docs = self.vectorstore.similarity_search(query, k=k)
+        
+        # Ekstrak nama produk yang relevan dari metadata vektor
+        relevant_names = [doc.metadata["name"] for doc in docs]
+        
+        # Filter dataframe asli berdasarkan hasil pencarian vektor
+        relevant_df = self.df[self.df['name'].isin(relevant_names)]
+        return relevant_df
+
     def generate_response(self, query, history=[]):
-        logger.info(f"Processing query: '{query}'")
-        logger.debug(f"Conversation history length: {len(history)}")
-
-        relevant_df = self.retrieve(query, history)
+        logger.info(f"Processing query via RAG: '{query}'")
+        
+        # 1. RETRIEVAL PHASE (Cosine Similarity via FAISS)
+        relevant_df = self.retrieve(query)
+        
         if relevant_df.empty:
-            logger.warning(f"No relevant products found for query: {query}")
-            context = "Tidak ada produk yang cocok ditemukan di katalog PT Cipta Sama Abadi."
+            context = "Tidak ada produk yang relevan ditemukan di katalog PT Cipta Sama Abadi."
         else:
-            relevant_df = self.sort_results(relevant_df, query)
-            logger.info(f"Found {len(relevant_df)} relevant products after sorting")
-            context = relevant_df.to_string()
-
-        logger.debug(f"Context prepared with length: {len(context)} characters")
-
+            context = relevant_df.to_string(index=False)
+            
         history_text = "\n".join(history) if history else ""
+        
+        # Prompt Engineering ketat untuk mencegah halusinasi
         system_prompt = """Kamu adalah AI Konsultan Pakan resmi PT. Cipta Sama Abadi, berlokasi di Parung, Bogor.
-Sebagai asisten resmi, kamu bertugas menjawab semua pertanyaan terkait pakan unggas dari katalog, SERTA pertanyaan profil toko seperti lokasi.
+Sebagai asisten resmi, kamu bertugas menjawab semua pertanyaan terkait pakan unggas dari katalog yang diberikan.
 
 TUGAS UTAMA:
-- Jika pengguna bertanya produk/harga/stok: Berikan rekomendasi maksimal 3 produk terbaik dari katalog CSV yang diberikan. Jika ada produk mirip (misal BR12 dan 512B), kamu BOLEH menggunakan pengetahuan AI eksternal untuk membandingkan perbedaan merek/kualitas agar pembeli tidak bingung. Dilarang keras mengarang harga/stok.
-- Jika pengguna bertanya lokasi/alamat toko: Langsung jawab bahwa toko PT Cipta Sama Abadi berlokasi di Parung, Bogor. JANGAN menolak menjawab pertanyaan lokasi.
-- Jika pengguna hanya menyapa: Balas sapaan dengan ramah tanpa menyebutkan stok.
-- Jika pertanyaan di luar peternakan atau profil toko: Tolak dengan sopan.
-
-Pastikan kamu merespons dengan bahasa Indonesia yang ramah, sopan, dan profesional. Hindari penggunaan markdown tebal (bold) atau miring (italic)."""
+- Berikan rekomendasi produk terbaik BERDASARKAN KONTEKS KATALOG yang disuplai (menggunakan metode Retrieval-Augmented Generation).
+- Jika pengguna bertanya lokasi/alamat toko: Langsung jawab bahwa toko PT Cipta Sama Abadi berlokasi di Parung, Bogor.
+- Jika pengguna menyapa: Balas sapaan dengan ramah.
+- Dilarang keras mengarang (halusinasi) nama pakan, harga, atau stok yang tidak ada di dalam konteks.
+- Jawab dengan bahasa Indonesia yang ramah, profesional, dan to-the-point."""
 
         prompt = f"""Conversation history:
 {history_text}
 
-Katalog produk resmi kami:
+Konteks Dokumen (Hasil Ekstraksi Vektor):
 {context}
 
 Pertanyaan pelanggan:
@@ -139,7 +110,9 @@ Pertanyaan pelanggan:
 Jawaban AI:"""
 
         try:
-            logger.info("Sending request to Gemini AI")
+            logger.info("Sending prompt to Gemini 1.5 Flash")
+            
+            # 2. GENERATION PHASE (Menggunakan Gemini 3.1 Flash Lite)
             response = self.client.models.generate_content(
                 model="models/gemini-3.1-flash-lite",
                 contents=prompt,
@@ -148,42 +121,29 @@ Jawaban AI:"""
                     temperature=0.3
                 )
             )
-            logger.info("Gemini AI response received successfully")
-            logger.debug(f"Response length: {len(response.text)} characters")
-
-            # Dynamic Matching: Masking & Positional Sorting
+            
             gemini_text = response.text.lower()
             matched_items = []
 
-            sorted_df = self.df.copy()
-            sorted_df['name_len'] = sorted_df['name'].apply(lambda x: len(str(x)))
-            sorted_df = sorted_df.sort_values(by='name_len', ascending=False)
-
-            temp_text = gemini_text
-            for _, row in sorted_df.iterrows():
+            # Format rekomendasi produk untuk dikembalikan ke frontend keranjang
+            for _, row in relevant_df.iterrows():
                 name_lower = str(row['name']).lower()
-                if name_lower in temp_text:
+                if name_lower in gemini_text:
                     pos = gemini_text.find(name_lower)
-                    
                     formatted_row = {
                         "name": row["name"],
                         "age_category": row["age_category"],
-                        "protein": str(row["protein"]) if not pd.isna(row["protein"]) else "N/A",
+                        "protein": str(row["protein"]) if pd.notna(row.get("protein")) else "N/A",
                         "price": row["price"],
-                        "description": row["description"] if not pd.isna(row["description"]) else "",
-                        "stock": int(row["stock"]),
+                        "description": row["description"] if pd.notna(row.get("description")) else "",
+                        "stock": int(row["stock"]) if pd.notna(row.get("stock")) else 0,
                         "image_url": str(row.get("image_url", "")) if pd.notna(row.get("image_url")) else ""
                     }
-                    
                     matched_items.append((pos, formatted_row))
-                    temp_text = temp_text.replace(name_lower, " " * len(name_lower))
+                    gemini_text = gemini_text.replace(name_lower, " " * len(name_lower))
 
             matched_items.sort(key=lambda x: x[0])
-
-            if matched_items:
-                sources = [item[1] for item in matched_items][:3]
-            else:
-                sources = []
+            sources = [item[1] for item in matched_items][:3]
 
             # Evaluation Logging
             log_file = 'qa_evaluation.csv'
@@ -202,27 +162,8 @@ Jawaban AI:"""
             except Exception as log_err:
                 logger.error(f"Failed to log evaluation data: {log_err}")
 
-            logger.info(f"Returning {len(sources)} product recommendations")
             return response.text, sources
 
         except Exception as e:
             logger.error(f"Gemini AI request failed: {e}")
-
-            if "429" in str(e) or "quota" in str(e).lower():
-                logger.warning("Rate limit exceeded, waiting 60 seconds before retry")
-                import time
-                time.sleep(60)  # Wait 1 minute for quota reset
-                try:
-                    logger.info("Retrying Gemini AI request after quota reset")
-                    response = self.client.models.generate_content(
-                        model="models/gemini-3.1-flash-lite",
-                        contents=prompt
-                    )
-                    logger.info("Retry successful")
-                    return response.text, sources
-                except Exception as retry_error:
-                    logger.error(f"Retry also failed: {retry_error}")
-                    return "Quota exceeded, please try again later.", []
-
-            logger.error(f"Unexpected error in AI response generation: {e}")
-            return f"Error generating response: {str(e)}", []
+            return "Maaf, terjadi kesalahan teknis pada pemrosesan RAG.", []
