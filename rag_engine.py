@@ -26,7 +26,7 @@ class RAGEngine:
         self.client = genai.Client(api_key=api_key)
         
         # Initialize Embeddings Model (Sesuai dengan screenshot code di Halaman 43)
-        self.embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+        self.embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
         self.vectorstore = None
         self.df = pd.DataFrame()
         
