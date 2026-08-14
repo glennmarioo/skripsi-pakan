@@ -131,7 +131,7 @@ Pertanyaan pelanggan:
 Jawaban AI:"""
 
         try:
-            logger.info("Sending prompt to Gemini 1.5 Flash")
+            logger.info("Sending prompt to Gemini 3.1 Flash Lite")
             
             # 2. GENERATION PHASE (Menggunakan Gemini 3.1 Flash Lite)
             response = self.client.models.generate_content(
