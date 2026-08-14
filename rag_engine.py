@@ -60,7 +60,7 @@ class RAGEngine:
         except Exception as e:
             logger.error(f"Failed to reload product catalog from database: {e}")
 
-    def retrieve(self, query, k=3):
+    def retrieve(self, query, k=15):
         if not self.vectorstore:
             return pd.DataFrame()
             
