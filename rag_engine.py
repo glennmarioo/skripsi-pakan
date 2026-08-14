@@ -11,6 +11,8 @@ from database import engine
 from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_core.documents import Document
+from langchain.retrievers import EnsembleRetriever
+from langchain_community.retrievers import BM25Retriever
 
 logger = logging.getLogger(__name__)
 
@@ -28,6 +30,7 @@ class RAGEngine:
         # Initialize Embeddings Model (Sesuai dengan screenshot code di Halaman 43)
         self.embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
         self.vectorstore = None
+        self.ensemble_retriever = None
         self.df = pd.DataFrame()
         
         self.reload_catalog()
@@ -55,17 +58,29 @@ class RAGEngine:
                 # Membuat Vector Database lokal dengan FAISS (Cosine Similarity)
                 self.vectorstore = FAISS.from_documents(documents, self.embeddings)
                 self.vectorstore.save_local("faiss_index")
-                logger.info("FAISS vector index built successfully.")
+                
+                # Hybrid Search: BM25 (Keyword Matching) + FAISS (Semantic)
+                bm25_retriever = BM25Retriever.from_documents(documents)
+                bm25_retriever.k = 10
+                
+                faiss_retriever = self.vectorstore.as_retriever(search_kwargs={"k": 10})
+                
+                self.ensemble_retriever = EnsembleRetriever(
+                    retrievers=[bm25_retriever, faiss_retriever], weights=[0.5, 0.5]
+                )
+                
+                logger.info("Hybrid Search (EnsembleRetriever BM25 + FAISS) built successfully.")
                 
         except Exception as e:
             logger.error(f"Failed to reload product catalog from database: {e}")
 
     def retrieve(self, query, k=15):
-        if not self.vectorstore:
+        if not hasattr(self, 'ensemble_retriever') or not self.ensemble_retriever:
             return pd.DataFrame()
             
-        # Menggunakan algoritma pencarian vektor similarity search (Cosine Similarity)
-        docs = self.vectorstore.similarity_search(query, k=k)
+        # Menggunakan algoritma Hybrid Search (BM25 + FAISS Cosine Similarity)
+        # Catatan: k disetel ke 10 dari masing-masing retriever saat diinisialisasi
+        docs = self.ensemble_retriever.invoke(query)
         
         # Ekstrak nama produk yang relevan dari metadata vektor
         relevant_names = [doc.metadata["name"] for doc in docs]
