@@ -4,6 +4,7 @@ import google.genai as genai
 from dotenv import load_dotenv
 import os
 import csv
+import re
 from datetime import datetime
 from database import engine
 
@@ -84,9 +85,28 @@ class RAGEngine:
         if not hasattr(self, 'ensemble_retriever') or not self.ensemble_retriever:
             return pd.DataFrame()
             
+        # Fitur Query Expansion: Normalisasi Kode Produk (Alphanumeric)
+        # Menangkap pola seperti "BR 11" dan mengubahnya menjadi "BR11"
+        pattern1 = r'([A-Za-z]+)\s+(\d+)'
+        # Menangkap pola seperti "512 B" dan mengubahnya menjadi "512B"
+        pattern2 = r'(\d+)\s+([A-Za-z]+)'
+        
+        expanded_terms = []
+        for match in re.finditer(pattern1, query):
+            expanded_terms.append(f"{match.group(1)}{match.group(2)}")
+            
+        for match in re.finditer(pattern2, query):
+            expanded_terms.append(f"{match.group(1)}{match.group(2)}")
+            
+        # Jika ditemukan pola, tambahkan ke kueri asli agar mesin BM25 bisa menangkap kedua versi
+        if expanded_terms:
+            enhanced_query = query + " " + " ".join(expanded_terms)
+            logger.info(f"Kueri diperluas (Query Expansion): {enhanced_query}")
+        else:
+            enhanced_query = query
+            
         # Menggunakan algoritma Hybrid Search (BM25 + FAISS Cosine Similarity)
-        # Catatan: k disetel ke 10 dari masing-masing retriever saat diinisialisasi
-        docs = self.ensemble_retriever.invoke(query)
+        docs = self.ensemble_retriever.invoke(enhanced_query)
         
         # Ekstrak nama produk yang relevan dari metadata vektor
         relevant_names = [doc.metadata["name"] for doc in docs]
